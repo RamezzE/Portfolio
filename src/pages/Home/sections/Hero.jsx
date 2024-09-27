@@ -34,10 +34,15 @@ const Hero = () => {
                             <h1 className="font-robotoMono font-medium text-secondary text-lg">Programming</h1>
                         </div>
                     </div>
-
+                    
+                    <button
+                        className="bg-primary text-bgColor font-robotoMono font-medium text-base md:text-lg py-2 px-4 rounded-md w-fit"
+                    >
+                        View my Resume
+                    </button>
                 </div>
-            </div>
 
+            </div>
 
             <div className="w-3/4 xs:w-1/2 sm:w-1/3 md:w-1/2 lg:w-1/3">
                 <img
@@ -46,6 +51,7 @@ const Hero = () => {
                     className="rounded-full"
                 />
             </div>
+
         </section>
     )
 }

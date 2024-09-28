@@ -2,7 +2,7 @@ const Hero = () => {
     return (
         <section
             id="hero"
-            className="w-full flex flex-col-reverse sm:flex-row justify-center gap-10 md:gap-30 items-center p-5 md:p-10 my-2 animate-fade-in"
+            className="w-full flex flex-col-reverse sm:flex-row justify-center gap-10 md:gap-30 items-center p-5 md:p-10 my-16 animate-fade-in"
         >
             <div className="md:w-1/2">
                 <div className="flex flex-col justify-center gap-5 w-[270px] md:w-[431px]">
@@ -46,7 +46,7 @@ const Hero = () => {
                 <img
                     src="https://avatars.githubusercontent.com/u/117018553?v=4"
                     alt="Ramez Ehab"
-                    className="rounded-full transition duration-500 ease-in-out transform hover:scale-110"
+                    className="rounded-full transition duration-500 ease-in-out transform hover:scale-105"
                 />
             </div>
 

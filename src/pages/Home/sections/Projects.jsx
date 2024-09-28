@@ -1,123 +1,98 @@
 import { useState } from "react";
-import images from "../../../constants/images";
+import { motion } from "framer-motion";
 import useOnScreen from "../../../components/useOnScreen";
+import ProjectCard from "../../../components/ProjectCard";
+import projects from "../../../constants/projects";
 
 const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
-
-  const projects = [
-    {
-      image: images.HST_Risk,
-      title: "HST Risk",
-      description: "React Native Expo",
-      category: "Mobile",
-    },
-    {
-      image: "https://via.placeholder.com/250",
-      title: "Project 2",
-      description: "A React Native project.",
-      category: "Web",
-    },
-  ];
 
   const filteredProjects =
     selectedCategory === "All"
       ? projects
       : projects.filter((project) => project.category === selectedCategory);
 
-  // eslint-disable-next-line react/prop-types
-  const ProjectCard = ({ image, title, description }) => {
-    const [ref, isVisible] = useOnScreen({ threshold: 0.5 });
-
-    return (
-      <div
-        ref={ref}
-        className={`flip-card p-2 w-64 h-64 transition-transform duration-700 ease-out transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
-      >
-        <div className="flip-card-inner">
-          {/* Front side */}
-          <div className="flip-card-front flex flex-col justify-center items-center rounded-md shadow-lg">
-            <img
-              src={image}
-              alt={title}
-              className="w-64 h-64 object-cover rounded-md mb-3"
-            />
-            <div className="flex flex-col justify-center items-center">
-              <h1 className="font-robotoMono font-medium text-primary text-lg">
-                {title}
-              </h1>
-              <h1 className="font-robotoMono text-primary text-base">
-                {description}
-              </h1>
-            </div>
-          </div>
-
-          {/* Back side */}
-          <div className="flip-card-back flex flex-col justify-center items-center rounded-md shadow-lg gap-y-6">
-            <h1 className="font-robotoMono font-medium text-primary text-lg">{title}</h1>
-            <h1 className="font-robotoMono text-primary text-base">{description}</h1>
-            <button className="bg-primary text-bgColor font-robotoMono font-medium text-base md:text-lg py-2 px-4 rounded-md w-fit transition duration-500 ease-in-out transform hover:scale-110 hover:bg-secondary">
-              View Project
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  };
-
   // Animate Title and Category Filters
-  const [titleRef, isTitleVisible] = useOnScreen({ threshold: 0.3 });
+  const [titleRef, isTitleVisible] = useOnScreen({ threshold: 0.5 });
+  // eslint-disable-next-line no-unused-vars
   const [buttonsRef, areButtonsVisible] = useOnScreen({ threshold: 0.75 });
 
+  const containerVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.7, staggerChildren: 0.1 },
+    },
+  }
+  const itemVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.7 },
+    },
+  };
+
   return (
-    <section
+    <motion.section
       id="projects"
-      className="flex flex-col justify-center items-center p-5 md:p-10 gap-10 my-16">
-      {/* Animate Title */}
-      <h1
+      className="flex flex-col justify-center items-center p-5 md:p-10 gap-10 my-16"
+      initial="hidden"
+      animate={isTitleVisible ? "visible" : "hidden"}
+      variants={containerVariants}
+    >
+      <motion.h1
         ref={titleRef}
-        className={`text-primary font-rubik font-medium text-4xl sm:text-5xl mb-6 transition-transform duration-700 ease-out transform ${
-          isTitleVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
-        }`}
+        className="text-primary font-rubik font-medium text-4xl sm:text-5xl mb-6"
+        variants={itemVariants}
       >
         My Projects
-      </h1>
+      </motion.h1>
 
       {/* Animate Filter Buttons */}
-      <div
+      <motion.div
         ref={buttonsRef}
-        className={`flex flex-row gap-5 mb-10 transition-transform duration-700 ease-out transform ${
-          areButtonsVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-        }`}
+        className="flex flex-row gap-5 mb-10"
+      // variants={buttonsVariants}
       >
-        <button
-          className={`px-4 py-2 rounded-md font-robotoMono text-xl ${
-            selectedCategory === "All" ? "bg-secondary text-bgColor" : "bg-primary text-bgColor"
-          }`}
+        <motion.button
+          className={`px-4 py-2 rounded-md font-robotoMono text-xl ${selectedCategory === "All" ? "bg-secondary text-bgColor" : "bg-primary text-bgColor"
+            }`}
           onClick={() => setSelectedCategory("All")}
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.3 }}
+          variants={itemVariants}
         >
           All
-        </button>
-        <button
-          className={`px-4 py-2 rounded-md font-robotoMono text-xl ${
-            selectedCategory === "Web" ? "bg-secondary text-bgColor" : "bg-primary text-bgColor"
-          }`}
+        </motion.button>
+        <motion.button
+          className={`px-4 py-2 rounded-md font-robotoMono text-xl ${selectedCategory === "Web" ? "bg-secondary text-bgColor" : "bg-primary text-bgColor"
+            }`}
           onClick={() => setSelectedCategory("Web")}
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.3 }}
+          variants={itemVariants}
         >
           Web
-        </button>
-        <button
-          className={`px-4 py-2 rounded-md font-robotoMono text-xl ${
-            selectedCategory === "Mobile" ? "bg-secondary text-bgColor" : "bg-primary text-bgColor"
-          }`}
+        </motion.button>
+        <motion.button
+          className={`px-4 py-2 rounded-md font-robotoMono text-xl ${selectedCategory === "Mobile" ? "bg-secondary text-bgColor" : "bg-primary text-bgColor"
+            }`}
           onClick={() => setSelectedCategory("Mobile")}
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.3 }}
+          variants={itemVariants}
         >
           Mobile
-        </button>
-      </div>
+        </motion.button>
+      </motion.div>
 
       {/* Render Project Cards */}
-      <div className="flex flex-col md:flex-row justify-center gap-20 md:gap-10">
+      <motion.div
+        className="flex flex-col md:flex-row justify-center gap-20 md:gap-10"
+        variants={itemVariants}
+      >
         {filteredProjects.map((project, index) => (
           <ProjectCard
             key={index}
@@ -126,8 +101,8 @@ const Projects = () => {
             description={project.description}
           />
         ))}
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 };
 

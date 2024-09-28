@@ -57,7 +57,7 @@ const ContactForm = () => {
       {!submitted ? (
         <motion.form
           onSubmit={handleSubmit}
-          className="w-full max-w-lg p-8 rounded-lg shadow-md flex flex-col gap-4 border-2 border-secondary"
+          className="w-full max-w-80 md:max-w-lg py-8 px-6 md:px-8 rounded-lg shadow-md flex flex-col gap-4 border-2 border-secondary"
           variants={itemVariants}
         >
           <div className="flex flex-col gap-2">
@@ -74,7 +74,7 @@ const ContactForm = () => {
               placeholder="Your Name"
               value={form.name}
               onChange={handleChange}
-              className="w-full px-4 py-2 text-primary font-robotoMono bg-bgColor outline-none rounded-lg border-[1px] border-primary/50 hover:border-secondary hover:border-2"
+              className="w-full px-4 py-2 text-primary text-sm md:text-base font-robotoMono bg-bgColor/50 outline-none rounded-lg border-[1px] border-primary/50 hover:border-secondary hover:border-2"
               required
             />
 
@@ -93,7 +93,7 @@ const ContactForm = () => {
               placeholder="Optionally, leave your email"
               value={form.email}
               onChange={handleChange}
-              className="w-full px-4 py-2 text-primary font-robotoMono bg-bgColor outline-none rounded-lg border-[1px] border-primary/50 hover:border-secondary hover:border-2"
+              className="w-full px-4 py-2 text-primary text-sm md:text-base font-robotoMono bg-bgColor/50 outline-none rounded-lg border-[1px] border-primary/50 hover:border-secondary hover:border-2"
             />
           </div>
           <div className="flex flex-col gap-2 mb-4">
@@ -110,7 +110,7 @@ const ContactForm = () => {
               rows="5"
               value={form.message}
               onChange={handleChange}
-              className="w-full px-4 py-2 text-primary font-robotoMono bg-bgColor outline-none rounded-lg border-[1px] border-primary/50 hover:border-secondary hover:border-2"
+              className="w-full px-4 py-2 text-primary text-sm md:text-base font-robotoMono bg-bgColor/50 outline-none rounded-lg border-[1px] border-primary/50 hover:border-secondary hover:border-2"
               required
             />
           </div>

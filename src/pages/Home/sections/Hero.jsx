@@ -127,7 +127,7 @@ const Hero = () => {
             </div>
 
             <motion.div
-                className="w-3/4 xs:w-1/2 sm:w-1/3"
+                className="w-3/4 xs:w-1/2 sm:w-1/3 max-w-[60vw]"
                 initial="hidden"
                 animate="visible"
                 variants={imageVariants}

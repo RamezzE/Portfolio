@@ -46,7 +46,7 @@ const App = () => {
           y: Math.random() * height,
           size: Math.random() * 2 + 1,
           speedX: (Math.random() * 0.25) * (Math.random() < 0.5 ? 1 : -1),
-          speedY: (Math.random() * 0.25) * (Math.random() < 0.5 ? 1 : -1),          
+          speedY: (Math.random() * 0.25) * (Math.random() < 0.5 ? 1 : -1),
           opacity: Math.random() * 0.5 + 0.5,
         });
       }
@@ -96,12 +96,13 @@ const App = () => {
 
   return (
     <Router>
+      {/* Dark Space-like Gradient Background */}
+      <div className="fixed inset-0 bg-gradient-to-br from-black via-gray-900 to-black z-0"></div>
+
+      {/* Sticky NavBar */}
       <NavBar />
 
       <div className="relative w-full flex flex-col justify-center items-center overflow-hidden">
-        {/* Dark Space-like Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black z-0"></div>
-
         {/* Canvas for starfield and comets */}
         <canvas ref={canvasRef} className="absolute inset-0 z-0" />
 

@@ -1,11 +1,27 @@
-import { useState } from "react";
+import { useReducer } from "react";
 import { motion } from "framer-motion";
 import useOnScreen from "../../../components/useOnScreen";
 
-const ContactForm = () => {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [submitted, setSubmitted] = useState(false);
+const initialState = {
+  form: { name: "", email: "", message: "" },
+  submitted: false,
+};
 
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "UPDATE_FORM":
+      return { ...state, form: { ...state.form, [action.field]: action.value } };
+    case "SUBMIT":
+      return { ...state, submitted: true };
+    case "RESET":
+      return initialState;
+    default:
+      return state;
+  }
+};
+
+const ContactForm = () => {
+  const [state, dispatch] = useReducer(reducer, initialState);
   const [titleRef, isTitleVisible] = useOnScreen({ threshold: 0.5 });
 
   const containerVariants = {
@@ -28,14 +44,13 @@ const ContactForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
+    dispatch({ type: "UPDATE_FORM", field: name, value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Implement email submission logic here (EmailJS, Formspree, etc.)
-    setSubmitted(true);
-    console.log(form);
+    dispatch({ type: "SUBMIT" });
+    console.log(state.form); // Log form data (you can add email submission logic here)
   };
 
   return (
@@ -54,7 +69,7 @@ const ContactForm = () => {
         Reach Out
       </motion.h1>
 
-      {!submitted ? (
+      {!state.submitted ? (
         <motion.form
           onSubmit={handleSubmit}
           className="w-full max-w-80 md:max-w-lg py-8 px-6 md:px-8 rounded-lg shadow-md flex flex-col gap-4 border-2 border-secondary"
@@ -72,13 +87,13 @@ const ContactForm = () => {
               name="name"
               id="name"
               placeholder="Your Name"
-              value={form.name}
+              value={state.form.name}
               onChange={handleChange}
               className="w-full px-4 py-2 text-primary text-sm md:text-base font-robotoMono bg-bgColor/50 outline-none rounded-lg border-[1px] border-primary/50 hover:border-secondary hover:border-2"
               required
             />
-
           </div>
+
           <div className="flex flex-col gap-2">
             <label
               htmlFor="email"
@@ -91,11 +106,12 @@ const ContactForm = () => {
               name="email"
               id="email"
               placeholder="Optionally, leave your email"
-              value={form.email}
+              value={state.form.email}
               onChange={handleChange}
               className="w-full px-4 py-2 text-primary text-sm md:text-base font-robotoMono bg-bgColor/50 outline-none rounded-lg border-[1px] border-primary/50 hover:border-secondary hover:border-2"
             />
           </div>
+
           <div className="flex flex-col gap-2 mb-4">
             <label
               htmlFor="message"
@@ -108,12 +124,13 @@ const ContactForm = () => {
               id="message"
               placeholder="Your Message"
               rows="5"
-              value={form.message}
+              value={state.form.message}
               onChange={handleChange}
               className="w-full px-4 py-2 text-primary text-sm md:text-base font-robotoMono bg-bgColor/50 outline-none rounded-lg border-[1px] border-primary/50 hover:border-secondary hover:border-2"
               required
             />
           </div>
+
           <motion.button
             type="submit"
             className="bg-primary text-bgColor font-robotoMono font-medium py-2 px-4 rounded-lg mx-auto"

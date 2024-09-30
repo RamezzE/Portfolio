@@ -5,6 +5,10 @@ const initialState = {
   projectPopUpData: {
     name: "",
     description: "",
+    long_description: "",
+    tech_stack: [""],
+    links: [{ name: "", url: "" }],
+    category: "",
   },
 };
 

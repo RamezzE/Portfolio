@@ -93,9 +93,7 @@ const Projects = () => {
         {state.filteredProjects.map((project, index) => (
           <ProjectCard
             key={index}
-            image={project.image}
-            title={project.title}
-            description={project.description}
+            projectData={project}
           />
         ))}
       </motion.div>

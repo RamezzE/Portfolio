@@ -1,7 +1,10 @@
 import useOnScreen from "./useOnScreen";
+import { GlobalContext } from "../context/GlobalProvider";
+import { useContext } from "react";
 
 // eslint-disable-next-line react/prop-types
 const ProjectCard = ({ image, title, description }) => {
+    const { dispatch } = useContext(GlobalContext);
     const [ref, isVisible] = useOnScreen({ threshold: 0.5 });
 
     return (
@@ -31,7 +34,9 @@ const ProjectCard = ({ image, title, description }) => {
                 <div className="flip-card-back flex flex-col justify-center items-center rounded-md shadow-lg gap-y-6">
                     <h1 className="font-robotoMono font-medium text-primary text-lg">{title}</h1>
                     <h1 className="font-robotoMono text-primary text-base">{description}</h1>
-                    <button className="bg-primary text-bgColor font-robotoMono font-medium text-base md:text-lg py-2 px-4 rounded-md w-fit transition duration-500 ease-in-out transform hover:scale-110 hover:bg-secondary">
+                    <button className="bg-primary text-bgColor font-robotoMono font-medium text-base md:text-lg py-2 px-4 rounded-md w-fit transition duration-500 ease-in-out transform hover:scale-110 hover:bg-secondary"
+                        onClick={() => { dispatch({ type: "TOGGLE_PROJECT_POPUP", payload: { name: title, description } }) }}
+                    >
                         View Project
                     </button>
                 </div>

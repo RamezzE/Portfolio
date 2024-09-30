@@ -62,9 +62,7 @@ const App = () => {
         particle.y += particle.speedY;
 
         // Wrap around the screen
-        // if (particle.x > canvas.width) particle.x = 0;
         if (particle.x > canvas.width || particle.x < 0) particle.speedX *= -1;
-        // if (particle.x < 0) particle.x = canvas.width;
         // if (particle.y > canvas.height || particle.y < 0) particle.speedY *= -1;
         if (particle.y > canvas.height) particle.y = 0;
         if (particle.y < 0) particle.y = canvas.height;
@@ -97,7 +95,7 @@ const App = () => {
   return (
     <Router>
       {/* Dark Space-like Gradient Background */}
-      <div className="fixed inset-0 bg-gradient-to-br from-black via-gray-900 to-black z-0"></div>
+      <div className="fixed inset-0 bg-gradient-to-br from-black via-[#001] to-black z-0"></div>
 
       {/* Sticky NavBar */}
       <NavBar />

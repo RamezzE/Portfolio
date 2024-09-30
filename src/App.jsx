@@ -1,8 +1,9 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useEffect, useRef } from 'react';
 import Home from './pages/Home/Home';
-import Project from './pages/Project/Project';
 import NavBar from './components/NavBar';
+
+import { GlobalProvider } from './context/GlobalProvider';
 
 const App = () => {
   const canvasRef = useRef(null);
@@ -93,26 +94,20 @@ const App = () => {
   }, []);
 
   return (
-    <Router>
-      {/* Dark Space-like Gradient Background */}
-      <div className="fixed inset-0 bg-gradient-to-br from-black via-[#001] to-black z-0"></div>
-
-      {/* Sticky NavBar */}
-      <NavBar />
-
-      <div className="relative w-full flex flex-col justify-center items-center overflow-hidden">
-        {/* Canvas for starfield and comets */}
-        <canvas ref={canvasRef} className="absolute inset-0 z-0" />
-
-        {/* Content (NavBar and Routes) */}
-        <div className="relative z-10 w-full flex flex-col justify-center items-center">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/project" element={<Project />} />
-          </Routes>
+    <GlobalProvider>
+      <Router>
+        <div className="fixed inset-0 bg-gradient-to-br from-black via-[#001] to-black z-0"></div>
+        <NavBar />
+        <div className="relative w-full flex flex-col justify-center items-center overflow-hidden">
+          <canvas ref={canvasRef} className="absolute inset-0 z-0" />
+          <div className="relative z-10 w-full flex flex-col justify-center items-center">
+            <Routes>
+              <Route path="/" element={<Home />} />
+            </Routes>
+          </div>
         </div>
-      </div>
-    </Router>
+      </Router>
+    </GlobalProvider>
   );
 };
 

@@ -1,38 +1,55 @@
-import { useState } from "react";
+import { useReducer } from "react";
 import { motion } from "framer-motion";
 import useOnScreen from "../../../components/useOnScreen";
 import ProjectCard from "../../../components/ProjectCard";
 import projects from "../../../constants/projects";
 
-const Projects = () => {
-  const [selectedCategory, setSelectedCategory] = useState("All");
-
-  const filteredProjects =
-    selectedCategory === "All"
-      ? projects
-      : projects.filter((project) => project.category === selectedCategory);
-
-  // Animate Title and Category Filters
-  const [titleRef, isTitleVisible] = useOnScreen({ threshold: 0.5 });
-  // eslint-disable-next-line no-unused-vars
-  const [buttonsRef, areButtonsVisible] = useOnScreen({ threshold: 0.75 });
-
-  const containerVariants = {
+const initialState = {
+  uniqueCategories: ["All", ...new Set(projects.map((project) => project.category))],
+  filteredProjects: projects,
+  selectedCategory: "All",
+  containerVariants: {
     hidden: { opacity: 0, y: 50 },
     visible: {
       opacity: 1,
       y: 0,
       transition: { duration: 0.7, staggerChildren: 0.1 },
     },
-  }
-  const itemVariants = {
+  },
+  itemVariants: {
     hidden: { opacity: 0, y: 50 },
     visible: {
       opacity: 1,
       y: 0,
       transition: { duration: 0.7 },
     },
-  };
+  },
+};
+
+const reducer = (state, action) => {
+  switch (action.type) {
+
+    case "SET_CATEGORY":
+      var newProjects = [];
+      if (action.category === state.selectedCategory)
+        return state;
+      else if (action.category === "All")
+        newProjects = projects;
+      else
+        newProjects = projects.filter((project) => project.category === action.category);
+
+      return { ...state, selectedCategory: action.category, filteredProjects: newProjects };
+
+    case "RESET":
+      return initialState;
+    default:
+      return state;
+  }
+};
+
+const Projects = () => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const [titleRef, isTitleVisible] = useOnScreen({ threshold: 0.5 });
 
   return (
     <motion.section
@@ -40,65 +57,43 @@ const Projects = () => {
       className="flex flex-col justify-center items-center p-5 md:p-10 gap-10 my-16"
       initial="hidden"
       animate={isTitleVisible ? "visible" : "hidden"}
-      variants={containerVariants}
+      variants={state.containerVariants}
     >
       <motion.h1
         ref={titleRef}
         className="text-primary font-rubik font-medium text-4xl sm:text-5xl mb-6"
-        variants={itemVariants}
+        variants={state.itemVariants}
       >
         My Projects
       </motion.h1>
 
-      {/* Animate Filter Buttons */}
       <motion.div
-        ref={buttonsRef}
         className="flex flex-row gap-5 mb-10"
-      // variants={buttonsVariants}
       >
-        <motion.button
-          className={`px-4 py-2 rounded-md font-robotoMono text-xl ${selectedCategory === "All" ? "bg-secondary text-bgColor" : "bg-primary text-bgColor"
-            }`}
-          onClick={() => setSelectedCategory("All")}
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.3 }}
-          variants={itemVariants}
-        >
-          All
-        </motion.button>
-        <motion.button
-          className={`px-4 py-2 rounded-md font-robotoMono text-xl ${selectedCategory === "Web" ? "bg-secondary text-bgColor" : "bg-primary text-bgColor"
-            }`}
-          onClick={() => setSelectedCategory("Web")}
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.3 }}
-          variants={itemVariants}
-        >
-          Web
-        </motion.button>
-        <motion.button
-          className={`px-4 py-2 rounded-md font-robotoMono text-xl ${selectedCategory === "Mobile" ? "bg-secondary text-bgColor" : "bg-primary text-bgColor"
-            }`}
-          onClick={() => setSelectedCategory("Mobile")}
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.3 }}
-          variants={itemVariants}
-        >
-          Mobile
-        </motion.button>
+        {state.uniqueCategories.map((category, index) => (
+          <motion.button
+            key={index}
+            className={`px-4 py-2 rounded-md font-robotoMono text-xl ${state.selectedCategory === category ? "bg-secondary text-bgColor" : "bg-primary text-bgColor"
+              }`}
+            onClick={() => dispatch({ type: "SET_CATEGORY", "category": category })}
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
+            variants={state.itemVariants}
+          >
+            {category}
+          </motion.button>
+        ))
+        }
       </motion.div>
 
-      {/* Render Project Cards */}
       <motion.div
         className="flex flex-col md:flex-row justify-center gap-20 md:gap-10"
-        variants={itemVariants}
+        variants={state.itemVariants}
       >
-        {filteredProjects.map((project, index) => (
+        {state.filteredProjects.map((project, index) => (
           <ProjectCard
             key={index}
-            image={project.image}
-            title={project.title}
-            description={project.description}
+            projectData={project}
           />
         ))}
       </motion.div>

@@ -2,6 +2,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { GlobalProvider } from './context/GlobalProvider';
 import { Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
+import Footer from './components/Footer';
 import CanvasBackground from './components/CanvasBackground';
 import Home from './pages/Home/Home';
 
@@ -19,6 +20,7 @@ const App = () => {
               <Routes>
                 <Route path="/" element={<Home />} />
               </Routes>
+              <Footer />
             </div>
           </div>
         </>

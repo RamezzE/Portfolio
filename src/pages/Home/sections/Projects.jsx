@@ -87,7 +87,7 @@ const Projects = () => {
       </motion.div>
 
       <motion.div
-        className="flex flex-col md:flex-row justify-center gap-20 md:gap-10"
+        className="flex flex-row flex-wrap justify-center gap-5 sm:gap-20 md:gap-10"
         variants={state.itemVariants}
       >
         {state.filteredProjects.map((project, index) => (

@@ -41,6 +41,11 @@ const personalLinks = [
         icon: icons.github,
         link: 'https://www.github.com/RamezzE/',
     },
+    {
+        name: 'Email',
+        icon: icons.email,
+        link: 'mailto:ramezehab2@gmail.com',
+    },
 ]
 
 
@@ -160,7 +165,7 @@ const Hero = () => {
                     whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
                 />
                 <motion.div
-                    className="flex flex-row justify-center gap-x-5 pt-2 sm:pt-0"
+                    className="flex flex-row justify-center gap-x-5 pt-2 lg:pt-0"
                     variants={variants.item}
                 >
                     {personalLinks.map((link, index) => (
@@ -175,8 +180,6 @@ const Hero = () => {
                     ))}
                 </motion.div>
             </motion.div>
-
-
         </motion.section>
     );
 };

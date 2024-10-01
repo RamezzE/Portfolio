@@ -21,7 +21,7 @@ const ProjectCard = ({ projectData }) => {
                         className="object-cover rounded-md mb-3 h-[50%] sm:h-[60%] w-auto"
                     />
                     <div className="flex flex-col justify-center items-center">
-                        <span className="font-robotoMono font-medium text-primary text-lg text-center">
+                        <span className="font-robotoMono font-medium text-primary text-base sm:text-lg text-center">
                             {projectData.name}
                         </span>
                         <span className="font-robotoMono font-medium text-primary/50 text-xs sm:text-base text-center">
@@ -32,7 +32,7 @@ const ProjectCard = ({ projectData }) => {
 
                 {/* Back side */}
                 <div className="flip-card-back flex flex-col justify-evenly items-center rounded-md shadow-lg gap-y-4 h-full w-full absolute backface-hidden transform rotateY-180">
-                    <h1 className="font-robotoMono font-medium text-primary text-lg text-center">{projectData.name}</h1>
+                    <h1 className="font-robotoMono font-medium text-primary text-base sm:text-lg text-center">{projectData.name}</h1>
                     <p className="font-robotoMono font-medium text-primary/50 text-xs sm:text-base text-center">{projectData.description}</p>
                     <button
                         className="bg-primary text-bgColor font-robotoMono font-medium text-xs xs:text-base md:text-lg py-2 px-4 rounded-md w-fit transition duration-500 ease-in-out transform hover:scale-110 hover:bg-secondary"

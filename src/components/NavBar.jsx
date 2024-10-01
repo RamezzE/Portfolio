@@ -2,8 +2,8 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 
 const items = [
-  { name: "Home", link: "#hero" },
-  { name: "About", link: "#about" },
+  // { name: "Home", link: "#hero" },
+  { name: "About", link: "#hero" },
   { name: "Projects", link: "#projects" },
   { name: "Contact", link: "#contact" }
 ];

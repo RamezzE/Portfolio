@@ -88,7 +88,7 @@ const NavBar = () => {
         <a
           key={index}
           className={
-            "font-robotoMono font-medium text-base md:text-lg scale-110 transition transform hover:scale-110 cursor-pointer" +
+            "font-robotoMono font-medium text-base md:text-lg transition transform hover:scale-110 active:scale-110 cursor-pointer" +
             (currentItem === item.name ? " text-secondary" : " text-primary")
           }
           href={item.link}

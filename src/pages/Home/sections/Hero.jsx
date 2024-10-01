@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion';
+import icons from '../../../constants/icons';
+import images from '../../../constants/images';
 
 const variants = {
     container: {
@@ -28,20 +30,36 @@ const variants = {
     },
 }
 
+const personalLinks = [
+    {
+        name: 'LinkedIn',
+        icon: icons.linkedin,
+        link: 'https://www.linkedin.com/in/ramezehab/',
+    },
+    {
+        name: 'GitHub',
+        icon: icons.github,
+        link: 'https://www.github.com/RamezzE/',
+    },
+]
+
 
 const Hero = () => {
 
     return (
         <motion.section
             id="hero"
-            className="w-full flex flex-col-reverse sm:flex-row justify-center gap-10 md:gap-30 items-center p-00 md:p-10 my-12 sm:my-16"
+            className="w-full h-[85vh] sm:h-[90vh] flex flex-col-reverse sm:flex-row justify-end xs:justify-evenly gap-y-8 sm:gap-30 items-center sm:px-10 md:px-10 "
             initial="hidden"
             animate="visible"
         >
-            <div className="md:w-1/2">
-                <motion.div
-                    className="flex flex-col justify-center gap-5 w-[270px] md:w-[325px] lg:w-[431px]"
-                    variants={variants.container}
+            <motion.div
+                className="h-[40%] sm:h-[50%] md:w-1/2 md:h-screen/2 flex flex-col justify-center items-start gap-y-5 pt-4 sm:pt-0"
+                variants={variants.container}
+            >
+                <div
+                    className="flex flex-col justify-center gap-5 w-[270px] md:w-[325px] lg:w-[431px] "
+
                 >
                     <div>
                         <motion.div className="flex flex-row"
@@ -117,30 +135,48 @@ const Hero = () => {
                         </motion.div>
                     </div>
 
-                    <motion.button
-                        className="bg-primary text-bgColor font-robotoMono font-medium text-base md:text-lg py-2 px-4 rounded-md w-fit mt-6 md:mt-0 mx-auto md:mx-0"
-                        variants={variants.sideSlide}
-                        whileHover={{ scale: 1.1, backgroundColor: '#51bfff' }}
-                        transition={{ duration: 0.3 }}
-                    >
-                        View my Resume
-                    </motion.button>
-                </motion.div>
-            </div>
+
+                </div>
+                <motion.button
+                    className="bg-primary text-bgColor font-robotoMono font-medium text-base md:text-lg py-2 px-4 rounded-md w-fit sm:mt-auto mx-auto sm:mx-0 active:bg-secondary active:scale-110 "
+                    variants={variants.sideSlide}
+                    whileHover={{ scale: 1.1, backgroundColor: '#51bfff' }}
+                    transition={{ duration: 0.3 }}
+                >
+                    View my Resume
+                </motion.button>
+            </motion.div>
 
             <motion.div
-                className="w-3/4 xs:w-1/2 sm:w-1/3 max-w-[60vw]"
+                className="h-[40%] sm:h-[50%] flex flex-col justify-evenly sm:justify-between"
                 initial="hidden"
                 animate="visible"
                 variants={variants.image}
             >
                 <motion.img
-                    src="https://avatars.githubusercontent.com/u/117018553?v=4"
+                    src={images.character}
                     alt="Ramez Ehab"
-                    className="rounded-full"
+                    className="rounded-full w-[30vw] min-w-40 xs:w-[30vw] xs:h-[30vw] sm:w-auto sm:h-[75%] md:max-h-[45vw] md:h-[80%] lg:h-[83%]  object-contain"
                     whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
                 />
+                <motion.div
+                    className="flex flex-row justify-center gap-x-5 pt-2 sm:pt-0"
+                    variants={variants.item}
+                >
+                    {personalLinks.map((link, index) => (
+                        <a key={index} href={link.link} target="_blank" rel="noreferrer">
+                            <motion.img
+                                src={link.icon}
+                                alt={link.name}
+                                className="h-8"
+                                whileHover={{ scale: 1.1, transition: { duration: 0.3 } }}
+                            />
+                        </a>
+                    ))}
+                </motion.div>
             </motion.div>
+
+
         </motion.section>
     );
 };

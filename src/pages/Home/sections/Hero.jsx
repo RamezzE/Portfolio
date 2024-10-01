@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import icons from '../../../constants/icons';
 import images from '../../../constants/images';
+import { ReactTyped } from "react-typed";
 
 const variants = {
     container: {
@@ -110,7 +111,20 @@ const Hero = () => {
                                 className="font-robotoMono font-medium text-secondary text-lg md:text-xl lg:text-2xl"
                                 whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
                             >
-                                Mobile | Web Developer
+                                <ReactTyped
+                                    strings={[
+                                        'Mobile | Web Developer',
+                                        'Aspiring AI Enthusiast',
+                                        'Living in debug mode',
+                                        'Guitarist',
+                                        'Ultimate Frisbee Player',
+                                    ]}
+                                    typeSpeed={75}
+                                    backSpeed={50}
+                                    backDelay={1000}
+                                    loop
+                                    fadeOut={false} // To erase the last string
+                                />
                             </motion.h1>
                         </motion.div>
                     </div>
@@ -124,7 +138,7 @@ const Hero = () => {
                                 className="font-robotoMono font-medium text-primary text-lg"
                                 whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
                             >
-                                Passionate about
+                                Hope to bring
                             </motion.h1>
                         </motion.div>
                         <motion.div
@@ -135,7 +149,7 @@ const Hero = () => {
                                 className="font-robotoMono font-medium text-secondary text-lg"
                                 whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
                             >
-                                Programming
+                                Real Change
                             </motion.h1>
                         </motion.div>
                     </div>

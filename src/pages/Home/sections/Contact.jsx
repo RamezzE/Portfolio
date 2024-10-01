@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useReducer, useCallback } from "react";
 import { motion } from "framer-motion";
 import useOnScreen from "../../../components/useOnScreen";
 
@@ -39,17 +39,17 @@ const reducer = (state, action) => {
 const ContactForm = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [titleRef, isTitleVisible] = useOnScreen({ threshold: 0.5 });
-
-  const handleChange = (e) => {
+  
+  const handleChange = useCallback((e) => {
     const { name, value } = e.target;
     dispatch({ type: "UPDATE_FORM", field: name, value });
-  };
-
-  const handleSubmit = (e) => {
+  }, [dispatch]);
+  
+  const handleSubmit = useCallback((e) => {
     e.preventDefault();
     dispatch({ type: "SUBMIT" });
-    console.log(state.form); // Log form data (you can add email submission logic here)
-  };
+    console.log(state.form); 
+  }, [dispatch, state.form]);
 
   return (
     <motion.section

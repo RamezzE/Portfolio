@@ -5,6 +5,7 @@ import website from '../assets/icons/website.png';
 import email from '../assets/icons/email.png';
 
 import HST_Risk from '../assets/icons/HST-Risk.png';
+import Virtual_Mouse from '../assets/icons/virtual-mouse.png';
 
 const icons = {
     linkedin,
@@ -13,6 +14,7 @@ const icons = {
     website,
     email,
     HST_Risk,
+    Virtual_Mouse,
 };
 
 export default icons;

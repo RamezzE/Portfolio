@@ -23,6 +23,22 @@ const projects = [
     ],
     category: "Mobile",
   },
+  {
+    image: images.Virtual_Mouse,
+    icon: icons.Virtual_Mouse,
+    name: "Virtual Mouse",
+    description: "Python Kivy",
+    long_description: "Virtual Mouse allows mouse control using several hand gestures mapped to perform different mouse functions such as movement, dragging, clicking, scrolling, zooming etc.",
+    tech_stack: ["Kivy", "OpenCV", "MediaPipe", "TensorFlow", "Pandas", "Numpy"],
+    links: [
+      {
+        name: "GitHub",
+        img: icons.github,
+        url: "https://github.com/RamezzE/VirtualMouse-HandTracking", 
+      },
+    ],
+    category: "Mobile",
+  },
 ];
 
 

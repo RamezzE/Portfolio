@@ -6,8 +6,8 @@ export default {
   ],
   theme: {
     screens : {
-      'xs' : '360px',
-      'sm' : '480px',
+      'xs' : '525px',
+      'sm' : '625px',
       'md' : '768px',
       'lg' : '976px',
       'xl' : '1440px',

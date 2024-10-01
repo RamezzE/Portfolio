@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion';
 
-const Hero = () => {
-    // Define animation variants for reusability
-    const containerVariants = {
+const variants = {
+    container: {
         hidden: { opacity: 0, y: 50 },
         visible: {
             opacity: 1,
@@ -12,22 +11,25 @@ const Hero = () => {
                 staggerChildren: 0.5, // Stagger animations of children
             },
         },
-    };
-
-    const itemVariants = {
+    },
+    item: {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-    };
+    },
 
-    const imageVariants = {
+    image: {
         hidden: { opacity: 0, scale: 0.5 },
         visible: { opacity: 1, scale: 1, transition: { duration: 1 } },
-    };
+    },
 
-    const sideSlideVariants = {
+    sideSlide: {
         hidden: { opacity: 0, x: 200 },
         visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
-    }
+    },
+}
+
+
+const Hero = () => {
 
     return (
         <motion.section
@@ -39,11 +41,11 @@ const Hero = () => {
             <div className="md:w-1/2">
                 <motion.div
                     className="flex flex-col justify-center gap-5 w-[270px] md:w-[325px] lg:w-[431px]"
-                    variants={containerVariants}
+                    variants={variants.container}
                 >
                     <div>
                         <motion.div className="flex flex-row"
-                            variants={itemVariants}
+                            variants={variants.item}
                         >
                             <motion.h1
                                 className="font-rubik uppercase font-medium text-primary text-3xl md:text-4xl lg:text-5xl"
@@ -54,7 +56,7 @@ const Hero = () => {
                         </motion.div>
                         <motion.div
                             className="flex flex-row justify-end"
-                            variants={sideSlideVariants}
+                            variants={variants.sideSlide}
                         >
                             <motion.h1
                                 className="font-rubik uppercase font-medium text-secondary text-3xl md:text-4xl lg:text-5xl"
@@ -68,7 +70,7 @@ const Hero = () => {
                     <div>
                         <motion.div
                             className="flex flex-row"
-                            variants={itemVariants}
+                            variants={variants.item}
                         >
                             <motion.h1
                                 className="font-robotoMono font-medium text-primary text-lg md:text-xl lg:text-2xl"
@@ -79,7 +81,7 @@ const Hero = () => {
                         </motion.div>
                         <motion.div
                             className="flex flex-row justify-end"
-                            variants={itemVariants}
+                            variants={variants.item}
                         >
                             <motion.h1
                                 className="font-robotoMono font-medium text-secondary text-lg md:text-xl lg:text-2xl"
@@ -93,7 +95,7 @@ const Hero = () => {
                     <div>
                         <motion.div
                             className="flex flex-row"
-                            variants={itemVariants}
+                            variants={variants.item}
                         >
                             <motion.h1
                                 className="font-robotoMono font-medium text-primary text-lg"
@@ -104,7 +106,7 @@ const Hero = () => {
                         </motion.div>
                         <motion.div
                             className="flex flex-row justify-end"
-                            variants={itemVariants}
+                            variants={variants.item}
                         >
                             <motion.h1
                                 className="font-robotoMono font-medium text-secondary text-lg"
@@ -117,7 +119,7 @@ const Hero = () => {
 
                     <motion.button
                         className="bg-primary text-bgColor font-robotoMono font-medium text-base md:text-lg py-2 px-4 rounded-md w-fit mt-6 md:mt-0 mx-auto md:mx-0"
-                        variants={sideSlideVariants}
+                        variants={variants.sideSlide}
                         whileHover={{ scale: 1.1, backgroundColor: '#51bfff' }}
                         transition={{ duration: 0.3 }}
                     >
@@ -130,7 +132,7 @@ const Hero = () => {
                 className="w-3/4 xs:w-1/2 sm:w-1/3 max-w-[60vw]"
                 initial="hidden"
                 animate="visible"
-                variants={imageVariants}
+                variants={variants.image}
             >
                 <motion.img
                     src="https://avatars.githubusercontent.com/u/117018553?v=4"

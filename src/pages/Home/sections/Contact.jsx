@@ -5,6 +5,22 @@ import useOnScreen from "../../../components/useOnScreen";
 const initialState = {
   form: { name: "", email: "", message: "" },
   submitted: false,
+  containerVariants: {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.7, staggerChildren: 0.1 },
+    },
+  },
+  itemVariants: {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.7 },
+    },
+  },
 };
 
 const reducer = (state, action) => {
@@ -24,24 +40,6 @@ const ContactForm = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [titleRef, isTitleVisible] = useOnScreen({ threshold: 0.5 });
 
-  const containerVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.7, staggerChildren: 0.1 },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.7 },
-    },
-  };
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     dispatch({ type: "UPDATE_FORM", field: name, value });
@@ -59,12 +57,12 @@ const ContactForm = () => {
       className="flex flex-col justify-center items-center p-5 md:p-10 gap-10 my-16"
       initial="hidden"
       animate={isTitleVisible ? "visible" : "hidden"}
-      variants={containerVariants}
+      variants={state.containerVariants}
     >
       <motion.h1
         ref={titleRef}
         className="text-primary font-rubik font-medium text-4xl sm:text-5xl mb-6"
-        variants={itemVariants}
+        variants={state.itemVariants}
       >
         Reach Out
       </motion.h1>
@@ -73,7 +71,7 @@ const ContactForm = () => {
         <motion.form
           onSubmit={handleSubmit}
           className="w-full max-w-80 md:max-w-lg py-8 px-6 md:px-8 rounded-lg shadow-md flex flex-col gap-4 border-2 border-secondary"
-          variants={itemVariants}
+          variants={state.itemVariants}
         >
           <div className="flex flex-col gap-2">
             <label
@@ -143,7 +141,7 @@ const ContactForm = () => {
       ) : (
         <motion.div
           className="w-full max-w-lg p-8 rounded-lg shadow-md text-center border-secondary border-2"
-          variants={itemVariants}
+          variants={state.itemVariants}
         >
           <h2 className="text-2xl text-secondary font-medium font-rubik mb-4">Thank you!</h2>
           <p className="text-primary font-robotoMono">Your message has been successfully sent. I{"'"}ll get back to you as soon as possible.</p>

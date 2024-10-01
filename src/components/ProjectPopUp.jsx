@@ -20,22 +20,22 @@ const ProjectPopUp = () => {
 
                 <div className="flex flex-col justify-start items-center md:items-start h-full md:px-10 xl:py-5">
                     <h2 className="text-3xl md:text-4xl font-rubik font-medium text-primary">{data.name}</h2>
-                    <p className="hidden md:block mt-4 mb-6 text-sm sm:text-base md:text-lg text-center md:text-start text-primary/50">{data.long_description}</p>
+                    <p className="hidden md:block mt-4 mb-6 text-sm md:text-base lg:text-lg text-center md:text-start text-primary/50">{data.long_description}</p>
 
                     <div className="flex flex-col md:flex-row md:space-x-16 w-full h-full pb-2 ">
                         <div className="flex flex-col justify-start md:max-w-[50%] h-full ">
-                            <p className="block md:hidden mt-4 mb-6 text-sm sm:text-base md:text-lg text-center md:text-start text-primary/50">{data.long_description}</p>
+                            <p className="block md:hidden mt-4 mb-6 text-sm md:text-base lg:text-lg text-center md:text-start text-primary/50">{data.long_description}</p>
 
                             <div className="flex flex-row flex-wrap justify-center md:justify-start items-start gap-x-2 gap-y-4 ">
                                 {data.tech_stack.map((tech, index) => (
-                                    <span key={index} className="bg-[#333] text-primary text-sm md:text-base font-rubik font-medium py-2 px-2 md:px-4 rounded-2xl h-fit w-fit hover:bg-[#444] transition-all cursor-pointer">
+                                    <span key={index} className="bg-[#333] text-primary text-sm lg:text-base font-rubik font-medium py-2 px-2 md:px-4 rounded-2xl h-fit w-fit hover:bg-[#444] transition-all cursor-pointer">
                                         {tech}
                                     </span>
 
                                 ))}
                             </div>
 
-                            <div className="flex flex-row flex-wrap justify-center mt-auto md:justify-start items-end gap-x-2 gap-y-4 sm:pb-4">
+                            <div className="flex flex-row flex-wrap justify-center mt-auto pt-4 md:justify-start items-end gap-x-2 gap-y-4 sm:pb-4">
                                 {/* <span className="text-primary text-lg font-rubik font-medium text-center t">Links: </span> */}
                                 {data.links.map((link, index) => (
                                     <a
@@ -53,8 +53,8 @@ const ProjectPopUp = () => {
                             </div>
                         </div>
 
-                        <div className="max-w-0 md:min-w-[30%] md:max-w-[45%]">
-                            <img src={data.image} alt={data.name} className="w-full h-full object-contain rounded-md" />
+                        <div className="max-w-0 md:min-w-[30%] md:max-w-[45%] mt-auto">
+                            <img src={data.image} alt={data.name} className="w-full h-full object-contain pb-4 rounded-md" />
                         </div>
                     </div>
 

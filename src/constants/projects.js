@@ -37,7 +37,7 @@ const projects = [
         url: "https://github.com/RamezzE/VirtualMouse-HandTracking", 
       },
     ],
-    category: "Mobile",
+    category: "Computer Vision",
   },
 ];
 

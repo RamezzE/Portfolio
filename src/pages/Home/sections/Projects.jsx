@@ -68,12 +68,12 @@ const Projects = () => {
       </motion.h1>
 
       <motion.div
-        className="flex flex-row gap-5 mb-10"
+        className="flex flex-row flex-wrap justify-center gap-5 mb-10"
       >
         {state.uniqueCategories.map((category, index) => (
           <motion.button
             key={index}
-            className={`px-4 py-2 rounded-md font-robotoMono text-xl ${state.selectedCategory === category ? "bg-secondary text-bgColor" : "bg-primary text-bgColor"
+            className={`p-2 rounded-md font-robotoMono sm:text-xl ${state.selectedCategory === category ? "bg-secondary text-bgColor" : "bg-primary text-bgColor"
               }`}
             onClick={() => dispatch({ type: "SET_CATEGORY", "category": category })}
             whileHover={{ scale: 1.05 }}

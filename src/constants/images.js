@@ -1,11 +1,7 @@
-import HST_Risk from '../assets/images/HST-Risk.png';
-import Virtual_Mouse from '../assets/images/virtual-mouse.png';
-import character from '../assets/images/character.png';
-
 const images = {
-    HST_Risk,
-    Virtual_Mouse,
-    character,
+    HST_Risk: '/images/HST-Risk.png',
+    Virtual_Mouse: '/images/virtual-mouse.png',
+    character: '/images/character.png',
 };
 
 export default images;

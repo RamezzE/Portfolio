@@ -3,7 +3,8 @@ import icons from "./icons";
 
 const projects = [
   {
-    image: images.HST_Risk,
+    preview: images.HST_RISK,
+    images: images.HST_Risk_SlideShow,
     icon: icons.HST_Risk,
     name: "HST Risk",
     description: "React Native Expo",
@@ -24,7 +25,8 @@ const projects = [
     category: "Mobile",
   },
   {
-    image: images.Virtual_Mouse,
+    preview: images.Virtual_Mouse,
+    images: images.Virtual_Mouse_Slideshow,
     icon: icons.Virtual_Mouse,
     name: "Virtual Mouse",
     description: "Python Kivy",

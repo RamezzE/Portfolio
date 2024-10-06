@@ -41,6 +41,23 @@ const projects = [
     ],
     category: "Computer Vision",
   },
+  {
+    preview: images.Carmel_California,
+    images: images.Carmel_California_Slideshow,
+    icon: icons.Carmel_California,
+    name: "Carmel California",
+    description: "PHP",
+    long_description: "A responsive web app for a Maadi coffee shop featuring animations, dynamic menu items, salad customization, and validations. The admin dashboard manages users, products, discounts, and roles with editable permissions, using an EAV database design.",
+    tech_stack: ["PHP", "SQL", "Bootstrap", "JavaScript"],
+    links: [
+      {
+        name: "GitHub",
+        img: icons.github,
+        url: "https://github.com/mennaemam12/Carmel-California", 
+      },
+    ],
+    category: "Web",
+  },
 ];
 
 

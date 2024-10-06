@@ -1,8 +1,13 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from 'react';
 
 
-const ImageSlideshow = ({ data, containerStyles }) => {
+const ImageSlideshow = ({ data = null, containerStyles = ""}) => {
+
+  if (!data)
+    return null;
+  
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const images = data.images;

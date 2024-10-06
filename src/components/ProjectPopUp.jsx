@@ -37,9 +37,13 @@ const ProjectPopUp = () => {
                                 ))}
                             </div>
 
-                            <div className="lg:hidden h-[50%] px-2 lg:h-0 lg:w-0">
-                                <img src={data.preview} alt={data.name} className="w-full h-full object-contain rounded-md" />
-                            </div>
+                            {
+                                data.preview && (
+                                    <div className="lg:hidden h-[50%] px-2 lg:h-0 lg:w-0">
+                                        <img src={data.preview} alt={data.name} className="w-full h-full object-contain rounded-md" />
+                                    </div>
+                                )
+                            }
 
                             <div className="flex flex-row flex-wrap justify-center mt-auto lg:justify-start items-end gap-x-2 lg:gap-y-4 sm:pb-4">
                                 {/* <span className="text-primary text-lg font-rubik font-medium text-center t">Links: </span> */}
@@ -58,15 +62,16 @@ const ProjectPopUp = () => {
                             </div>
                         </div>
 
-
-
-                        {/* <div className="w-0 h-0 md:w-full md:h-full md:max-h-[60vh] lg:max-h-[50vh] flex flex-row justify-center items-center px-12"> */}
-                        <div className="w-0 h-0 lg:w-full lg:h-full lg:max-h-[50vh] flex flex-row justify-center items-center px-12">
-                            <ImageSlideshow
-                                data={data}
-                                containerStyles={"w-full h-full"}
-                            />
-                        </div>
+                        {
+                            data.images.length > 0 && (
+                                <div className="w-0 h-0 lg:w-full lg:h-full lg:max-h-[50vh] flex flex-row justify-center items-center px-12">
+                                    <ImageSlideshow
+                                        data={data}
+                                        containerStyles={"w-full h-full"}
+                                    />
+                                </div>
+                            )
+                        }
 
                     </div>
 

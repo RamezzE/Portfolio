@@ -54,7 +54,7 @@ const Projects = () => {
   return (
     <motion.section
       id="projects"
-      className="flex flex-col justify-center items-center p-5 md:p-10 gap-10 my-16"
+      className="flex flex-col justify-center items-center p-5 md:p-10 gap-10 my-16 lg:mx-40"
       initial="hidden"
       animate={isTitleVisible ? "visible" : "hidden"}
       variants={state.containerVariants}
@@ -97,6 +97,14 @@ const Projects = () => {
           />
         ))}
       </motion.div>
+
+      <motion.p
+        className="text-primary/80 font-rubik text-xl"
+        variants={state.itemVariants}
+      >
+        View more on my <a href="https://github.com/ramezze" target="_blank" rel="noreferrer" className="text-secondary/80 hover:underline">GitHub</a>
+      </motion.p>
+
     </motion.section>
   );
 };

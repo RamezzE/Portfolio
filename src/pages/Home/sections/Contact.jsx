@@ -1,6 +1,7 @@
 import { useReducer, useCallback } from "react";
 import { motion } from "framer-motion";
 import useOnScreen from "../../../components/useOnScreen";
+import emailjs from "@emailjs/browser";
 
 const initialState = {
   form: { name: "", email: "", message: "" },
@@ -39,16 +40,33 @@ const reducer = (state, action) => {
 const ContactForm = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [titleRef, isTitleVisible] = useOnScreen({ threshold: 0.5 });
-  
+
   const handleChange = useCallback((e) => {
     const { name, value } = e.target;
     dispatch({ type: "UPDATE_FORM", field: name, value });
   }, [dispatch]);
-  
+
   const handleSubmit = useCallback((e) => {
     e.preventDefault();
-    dispatch({ type: "SUBMIT" });
-    console.log(state.form); 
+
+    if (state.form.name.trim() === "" || state.form.message.trim() === "") return;
+
+    const email_data = { ...state.form, email: state.form.email || "No email provided" };
+
+    email_data.name = email_data.name.trim();
+    email_data.message = email_data.message.trim();
+
+    emailjs.sendForm(import.meta.env.EMAILJS_SERVICE_ID, import.meta.env.EMAILJS_TEMPLATE_ID, email_data, {
+      publicKey: import.meta.env.EMAILJS_USER_ID,
+    })
+    .then((response) => {
+      dispatch({ type: "SUBMIT" });
+      console.log('Email sent successfully!', response.status, response.text);
+    })
+    .catch((error) => {
+      console.error('Failed to send email.', error);
+    });
+
   }, [dispatch, state.form]);
 
   return (

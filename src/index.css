@@ -23,12 +23,15 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  backface-visibility: hidden;
+  backface-visibility: hidden; /* Standard */
   border-radius: 8px;
+  transform: rotateX(0deg); /* Front face remains in place */
 }
 
 .flip-card-back {
+  transform: rotateX(180deg); /* Back face rotated by 180 degrees */
   transform: rotateY(180deg);
+
 }
 
 input:focus, textarea:focus {

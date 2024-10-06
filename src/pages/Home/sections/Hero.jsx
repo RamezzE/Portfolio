@@ -161,6 +161,7 @@ const Hero = () => {
                     variants={variants.sideSlide}
                     whileHover={{ scale: 1.1, backgroundColor: '#51bfff' }}
                     transition={{ duration: 0.3 }}
+                    onClick={() => {window.open('/resume.pdf', '_blank');}}
                 >
                     View my Resume
                 </motion.button>

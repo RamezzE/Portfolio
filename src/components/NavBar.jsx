@@ -29,7 +29,7 @@ const NavBar = () => {
     const offsetTop = targetElement.getBoundingClientRect().top + window.scrollY - navbarHeight - extraPadding;
     window.scrollTo({ top: offsetTop, behavior: "smooth" });
     
-    history.replaceState(null, '', item.link); 
+    // history.replaceState(null, '', item.link); 
 
     setTimeout(() => {
       scrollingRef.current = false;
@@ -52,7 +52,7 @@ const NavBar = () => {
 
       if (sectionTop <= 0 && sectionBottom > 0) {
         setCurrentItem(item.name);
-        history.replaceState(null, '', item.link); 
+        // history.replaceState(null, '', item.link); 
       }
     });
   }, []);

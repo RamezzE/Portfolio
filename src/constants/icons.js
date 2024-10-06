@@ -1,20 +1,14 @@
-import linkedin from '../assets/icons/linkedin.png';
-import github from '../assets/icons/github.png';
-import apple from '../assets/icons/apple.png';
-import website from '../assets/icons/website.png';
-import email from '../assets/icons/email.png';
-
-import HST_Risk from '../assets/icons/HST-Risk.png';
-import Virtual_Mouse from '../assets/icons/virtual-mouse.png';
-
 const icons = {
-    linkedin,
-    github,
-    apple,
-    website,
-    email,
-    HST_Risk,
-    Virtual_Mouse,
+    linkedin: '/icons/linkedin.png',
+    github: '/icons/github.png',
+    apple: '/icons/apple.png',
+    website: '/icons/website.png',
+    email: '/icons/email.png',
+    HST_Risk: '/icons/HST-Risk.png',
+    Virtual_Mouse: '/icons/virtual-mouse.png',
+    Carmel_California: '/icons/carmel-california.webp',
+    Flarky: '/icons/flarky.png',
+    Maze: '/icons/maze.png',
 };
 
 export default icons;

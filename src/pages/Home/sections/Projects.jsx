@@ -97,6 +97,14 @@ const Projects = () => {
           />
         ))}
       </motion.div>
+
+      <motion.p
+        className="text-primary/80 font-rubik text-xl"
+        variants={state.itemVariants}
+      >
+        View more on my <a href="https://github.com/ramezze" target="_blank" rel="noreferrer" className="text-secondary/80 hover:underline">GitHub</a>
+      </motion.p>
+
     </motion.section>
   );
 };

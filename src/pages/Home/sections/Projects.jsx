@@ -54,7 +54,7 @@ const Projects = () => {
   return (
     <motion.section
       id="projects"
-      className="flex flex-col justify-center items-center p-5 md:p-10 gap-10 my-16"
+      className="flex flex-col justify-center items-center p-5 md:p-10 gap-10 my-16 lg:mx-40"
       initial="hidden"
       animate={isTitleVisible ? "visible" : "hidden"}
       variants={state.containerVariants}

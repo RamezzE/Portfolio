@@ -1,4 +1,4 @@
-import { useReducer, useCallback } from "react";
+import { useReducer, useCallback, useRef } from "react";
 import { motion } from "framer-motion";
 import useOnScreen from "../../../components/useOnScreen";
 import emailjs from "@emailjs/browser";
@@ -40,6 +40,7 @@ const reducer = (state, action) => {
 const ContactForm = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [titleRef, isTitleVisible] = useOnScreen({ threshold: 0.5 });
+  const formRef = useRef(null);
 
   const handleChange = useCallback((e) => {
     const { name, value } = e.target;
@@ -56,7 +57,7 @@ const ContactForm = () => {
     email_data.name = email_data.name.trim();
     email_data.message = email_data.message.trim();
 
-    emailjs.sendForm(import.meta.env.VITE_EMAILJS_SERVICE_ID, import.meta.env.VITE_EMAILJS_TEMPLATE_ID, email_data, {
+    emailjs.sendForm(import.meta.env.VITE_EMAILJS_SERVICE_ID, import.meta.env.VITE_EMAILJS_TEMPLATE_ID, formRef.current, {
       publicKey: import.meta.env.VITE_EMAILJS_USER_ID,
     })
     .then((response) => {
@@ -90,6 +91,7 @@ const ContactForm = () => {
           onSubmit={handleSubmit}
           className="w-full max-w-80 md:max-w-lg py-8 px-6 md:px-8 rounded-lg shadow-md flex flex-col gap-4 border-2 border-secondary"
           variants={state.itemVariants}
+          ref={formRef}
         >
           <div className="flex flex-col gap-2">
             <label

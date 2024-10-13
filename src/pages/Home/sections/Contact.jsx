@@ -56,8 +56,8 @@ const ContactForm = () => {
     email_data.name = email_data.name.trim();
     email_data.message = email_data.message.trim();
 
-    emailjs.sendForm(import.meta.env.EMAILJS_SERVICE_ID, import.meta.env.EMAILJS_TEMPLATE_ID, email_data, {
-      publicKey: import.meta.env.EMAILJS_USER_ID,
+    emailjs.sendForm(import.meta.env.VITE_EMAILJS_SERVICE_ID, import.meta.env.VITE_EMAILJS_TEMPLATE_ID, email_data, {
+      publicKey: import.meta.env.VITE_EMAILJS_USER_ID,
     })
     .then((response) => {
       dispatch({ type: "SUBMIT" });

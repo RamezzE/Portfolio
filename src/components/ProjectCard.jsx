@@ -1,16 +1,13 @@
 /* eslint-disable react/prop-types */
-import useOnScreen from "./useOnScreen";
 import { GlobalContext } from "../context/GlobalProvider";
 import { useContext } from "react";
 
 const ProjectCard = ({ projectData }) => {
     const { dispatch } = useContext(GlobalContext);
-    const [ref, isVisible] = useOnScreen({ threshold: 0.5 });
 
     return (
         <div
-            ref={ref}
-            className={`flip-card w-32 h-32 sm:w-48 sm:h-48 transition-transform duration-700 ease-out transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} overflow-hidden`}
+            className={`flip-card w-32 h-32 sm:w-48 sm:h-48 transition-transform duration-700 ease-out transform overflow-hidden`}
         >
             <div className="flip-card-inner h-full w-full relative">
                 {/* Front side */}

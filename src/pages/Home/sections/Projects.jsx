@@ -1,6 +1,5 @@
-import { useReducer } from "react";
-import { motion } from "framer-motion";
-import useOnScreen from "../../../components/useOnScreen";
+import { useReducer, useRef, useEffect } from "react";
+import { motion, useInView, useAnimation } from "framer-motion";
 import ProjectCard from "../../../components/ProjectCard";
 import projects from "../../../constants/projects";
 
@@ -49,14 +48,21 @@ const reducer = (state, action) => {
 
 const Projects = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const [titleRef, isTitleVisible] = useOnScreen({ threshold: 0.5 });
+  const titleRef = useRef(null);
+  const animateControls = useAnimation();
+  const isInView = useInView(titleRef, { once: true });
+
+  useEffect(() => {
+    if (isInView)
+      animateControls.start("visible");
+  }, [animateControls, isInView]);
 
   return (
     <motion.section
       id="projects"
       className="flex flex-col justify-center items-center p-5 md:p-10 gap-10 my-16 lg:mx-40"
       initial="hidden"
-      animate={isTitleVisible ? "visible" : "hidden"}
+      animate={animateControls}
       variants={state.containerVariants}
     >
       <motion.h1

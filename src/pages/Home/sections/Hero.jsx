@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion';
+import { useEffect, useRef } from 'react';
+import { motion, useInView, useAnimation } from 'framer-motion';
 import icons from '../../../constants/icons';
 import images from '../../../constants/images';
 import { ReactTyped } from "react-typed";
@@ -51,13 +52,21 @@ const personalLinks = [
 
 
 const Hero = () => {
+    const ref = useRef(null);
+    const animationControls = useAnimation();
+    const isInView = useInView(ref, { once: true });
+
+    useEffect(() => {
+        if (isInView) animationControls.start('visible');
+    }, [animationControls, isInView]);
 
     return (
         <motion.section
+            ref={ref}
             id="hero"
             className="w-full h-[85vh] sm:h-[90vh] flex flex-col-reverse sm:flex-row justify-end xs:justify-evenly gap-y-8 sm:gap-30 items-center sm:px-10 md:px-10 "
             initial="hidden"
-            animate="visible"
+            animate={animationControls}
         >
             <motion.div
                 className="h-[40%] sm:h-[50%] md:w-1/2 md:h-screen/2 flex flex-col justify-center items-start gap-y-5 pt-4 sm:pt-0"
@@ -161,7 +170,7 @@ const Hero = () => {
                     variants={variants.sideSlide}
                     whileHover={{ scale: 1.1, backgroundColor: '#51bfff' }}
                     transition={{ duration: 0.3 }}
-                    onClick={() => {window.open('/resume.pdf', '_blank');}}
+                    onClick={() => { window.open('/resume.pdf', '_blank'); }}
                 >
                     View my Resume
                 </motion.button>

@@ -1,6 +1,5 @@
-import { useReducer, useCallback, useRef } from "react";
-import { motion } from "framer-motion";
-import useOnScreen from "../../../components/useOnScreen";
+import { useReducer, useCallback, useRef, useEffect } from "react";
+import { motion, useInView, useAnimation } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
 const initialState = {
@@ -39,8 +38,16 @@ const reducer = (state, action) => {
 
 const ContactForm = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const [titleRef, isTitleVisible] = useOnScreen({ threshold: 0.5 });
+  const titleRef = useRef(null);
   const formRef = useRef(null);
+  const animateControls = useAnimation();
+  const isInView = useInView(titleRef, { once: true });
+
+  useEffect(() => {
+    if (isInView) {
+      animateControls.start("visible");
+    }
+  }, [animateControls, isInView]);
 
   const handleChange = useCallback((e) => {
     const { name, value } = e.target;
@@ -75,7 +82,7 @@ const ContactForm = () => {
       id="contact"
       className="flex flex-col justify-center items-center p-5 md:p-10 gap-10 my-16"
       initial="hidden"
-      animate={isTitleVisible ? "visible" : "hidden"}
+      animate={animateControls}
       variants={state.containerVariants}
     >
       <motion.h1

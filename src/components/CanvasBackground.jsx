@@ -25,11 +25,11 @@ const CanvasBackground = () => {
   const resizeCanvas = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    
-    canvas.width = window.innerWidth;
-    canvas.height = document.body.scrollHeight;
 
-    const particleCount = canvas.width < 768 ? 100 : 200;
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const particleCount = canvas.width < 768 ? 35 : 75;
     particlesRef.current = generateParticles(particleCount, canvas.width, canvas.height);
   }, [generateParticles]); // `generateParticles` is a dependency here
 
@@ -52,7 +52,7 @@ const CanvasBackground = () => {
       ctx.fillStyle = `rgba(200, 200, 200, ${particle.opacity})`;
       ctx.fill();
       ctx.shadowColor = 'rgba(255, 255, 255, 0.6)';
-      ctx.shadowBlur = 7;
+      ctx.shadowBlur = 0;
     });
 
     animationFrameId.current = requestAnimationFrame(animate);
@@ -61,7 +61,7 @@ const CanvasBackground = () => {
   useEffect(() => {
     // Initial setup
     resizeCanvas();
-    animate();
+    animationFrameId.current = requestAnimationFrame(animate);
 
     // Add event listener for window resize
     window.addEventListener('resize', resizeCanvas);
@@ -73,7 +73,7 @@ const CanvasBackground = () => {
     };
   }, [resizeCanvas, animate]); // Add `resizeCanvas` and `animate` as dependencies
 
-  return <canvas ref={canvasRef} className="absolute inset-0 z-0" />;
+  return <canvas ref={canvasRef} className="fixed inset-0 z-0" />;
 };
 
 export default CanvasBackground;

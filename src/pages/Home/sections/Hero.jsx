@@ -39,6 +39,11 @@ const personalLinks = [
         link: 'https://www.linkedin.com/in/ramezehab/',
     },
     {
+        name: 'Upwork',
+        icon: icons.upwork,
+        link: 'https://www.upwork.com/freelancers/~01f9a101dc510f1112'
+    },
+    {
         name: 'GitHub',
         icon: icons.github,
         link: 'https://www.github.com/RamezzE/',

@@ -20,11 +20,11 @@ const projects = [
       "Socket.io",
     ],
     links: [
-      // {
-      //   name: "GitHub",
-      //   img: icons.github,
-      //   url: "",
-      // },
+      {
+        name: "GitHub",
+        img: icons.github,
+        url: "https://github.com/RamezzE/HST-Risk",
+      },
       {
         name: "Apple Store",
         img: icons.apple,

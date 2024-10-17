@@ -1,6 +1,6 @@
 const Footer = () => {
     return (
-      <footer className="bg-black/65 text-primary font-rubik py-16 w-full">
+      <footer className="bg-black/65 text-primary font-rubik py-16 w-full z-50">
         <div className="container mx-auto text-center">
           <p className="text-sm">
             Icons by <a href="https://icons8.com" target="_blank" rel="noreferrer" className="text-blue-400">Icons8</a>

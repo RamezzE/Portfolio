@@ -34,6 +34,25 @@ const projects = [
     category: "Mobile",
   },
   {
+    preview: images.Task_Visualizer,
+    images: images.Task_Visualizer_SlideShow,
+    icon: icons.Task_Visualizer,
+    name: "Task Visualizer",
+    description: "React | Electron",
+    long_description:
+      "A Task Visualizer desktop app for note-taking and task management, supporting 'topics' that contain tasks or nested 'projects.' Tasks can be set for specific days or as daily recurring. Users can upload icons for customization, and the app features a clean, minimalistic design for efficient, responsive task organization.",
+    tech_stack: [
+      "React",
+      "Tailwind CSS",
+      "Node.js",
+      "Electron.js",
+    ],
+    links: [
+      
+    ],
+    category: "Desktop",
+  },
+  {
     preview: images.Carmel_California,
     images: images.Carmel_California_Slideshow,
     icon: icons.Carmel_California,

@@ -62,8 +62,13 @@ const Hero = () => {
     const isInView = useInView(ref, { once: true });
 
     useEffect(() => {
-        if (isInView) animationControls.start('visible');
+        const timeout = setTimeout(() => {
+            if (isInView) animationControls.start('visible');
+        }, 200);
+    
+        return () => clearTimeout(timeout);
     }, [animationControls, isInView]);
+    
 
     return (
         <motion.section
@@ -184,7 +189,8 @@ const Hero = () => {
             <motion.div
                 className="h-[40%] sm:h-[50%] flex flex-col justify-evenly sm:justify-between"
                 initial="hidden"
-                animate="visible"
+                animate={animationControls}
+                // animate="visible"
                 variants={variants.image}
             >
                 <motion.img

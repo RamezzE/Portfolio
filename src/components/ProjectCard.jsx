@@ -1,9 +1,27 @@
 /* eslint-disable react/prop-types */
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { GlobalContext } from "../context/GlobalProvider";
 import { useContext } from "react";
 
 const ProjectCard = ({ projectData }) => {
-    const { dispatch } = useContext(GlobalContext);
+
+    const location = useLocation();
+
+
+    const { state, dispatch } = useContext(GlobalContext);
+
+    useEffect(() => {
+        setTimeout(() => {
+            const projectParam = location.hash.replace('#', '');
+            if (!projectParam)
+                return
+            if (projectData.slug !== projectParam)
+                return
+
+            dispatch({ type: "SHOW_PROJECT_POPUP", payload: projectData });
+        }, 1000);
+    }, []);
 
     return (
         <div
@@ -34,7 +52,8 @@ const ProjectCard = ({ projectData }) => {
                     <button
                         className="bg-primary text-bgColor font-robotoMono font-medium text-xs xs:text-base md:text-lg py-2 px-4 rounded-md w-fit transition duration-500 ease-in-out transform hover:scale-110 hover:bg-secondary"
                         onClick={() => {
-                            dispatch({ type: "TOGGLE_PROJECT_POPUP", payload: projectData });
+                            if (!state.projectPopUpVisible)
+                                dispatch({ type: "TOGGLE_PROJECT_POPUP", payload: projectData });
                         }}
                     >
                         More Details

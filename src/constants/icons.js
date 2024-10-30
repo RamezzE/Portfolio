@@ -6,6 +6,7 @@ const icons = {
     website: '/icons/website.webp',
     email: '/icons/email.webp',
     HST_Risk: '/icons/HST-Risk.webp',
+    Task_Visualizer: '/icons/task-visualizer.svg',
     Virtual_Mouse: '/icons/virtual-mouse.webp',
     Carmel_California: '/icons/carmel-california.webp',
     Flarky: '/icons/flarky.webp',

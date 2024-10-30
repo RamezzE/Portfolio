@@ -4,6 +4,7 @@ import icons from "./icons";
 const projects = [
   {
     preview: images.HST_RISK,
+    slug: "hst-risk",
     images: images.HST_Risk_SlideShow,
     icon: icons.HST_Risk,
     name: "HST Risk",
@@ -34,7 +35,28 @@ const projects = [
     category: "Mobile",
   },
   {
+    preview: images.Task_Visualizer,
+    slug: "task-visualizer",
+    images: images.Task_Visualizer_SlideShow,
+    icon: icons.Task_Visualizer,
+    name: "Task Visualizer",
+    description: "React | Electron",
+    long_description:
+      "A Task Visualizer desktop app for note-taking and task management, supporting 'topics' that contain tasks or nested 'projects.' Tasks can be set for specific days or as daily recurring. Icons can be uploaded for customization, and the app features a clean, minimalistic design.",
+    tech_stack: [
+      "React",
+      "Tailwind CSS",
+      "Electron Forge",
+      "Node.js",
+    ],
+    links: [
+      
+    ],
+    category: "Desktop",
+  },
+  {
     preview: images.Carmel_California,
+    slug: "carmel-california",
     images: images.Carmel_California_Slideshow,
     icon: icons.Carmel_California,
     name: "Carmel Café",
@@ -53,6 +75,7 @@ const projects = [
   },
   {
     preview: images.Virtual_Mouse,
+    slug: "virtual-mouse",
     images: images.Virtual_Mouse_Slideshow,
     icon: icons.Virtual_Mouse,
     name: "Virtual Mouse",
@@ -78,6 +101,7 @@ const projects = [
   },
   {
     preview: images.Bitcoin_Prediction,
+    slug: "bitcoin-prediction",
     images: [images.Bitcoin_Prediction],
     icon: images.Bitcoin_Prediction,
     name: "Bitcoin Price Prediction",
@@ -103,6 +127,7 @@ const projects = [
   },
   {
     preview: images.Flarky,
+    slug: "flarky-bird",
     images: images.Flarky_Slideshow,
     icon: icons.Flarky,
     name: "Flarky Bird",
@@ -124,6 +149,7 @@ const projects = [
   },
   {
     preview: images.Maze,
+    slug: "maze-solver",
     images: images.Maze_Slideshow,
     icon: icons.Maze,
     name: "Maze Solver",
@@ -145,6 +171,7 @@ const projects = [
   },
   {
     preview: images.Quadtree,
+    slug: "quadtree",
     images: [images.Quadtree],
     icon: images.Quadtree,
     name: "Quadtree Playground",

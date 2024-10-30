@@ -1,6 +1,8 @@
 const images = {
     HST_RISK: '/images/HST-Risk.webp',
     HST_Risk_SlideShow: ['/images/HST-Risk (1).webp', '/images/HST-Risk (2).webp', '/images/HST-Risk (3).webp', '/images/HST-Risk (4).webp'],
+    Task_Visualizer: '/images/task-visualizer (1).png',
+    Task_Visualizer_SlideShow: ['/images/task-visualizer (1).png', '/images/task-visualizer (2).png', '/images/task-visualizer (3).png', '/images/task-visualizer (4).png'],
     Virtual_Mouse: '/images/virtual-mouse.webp',
     Virtual_Mouse_Slideshow: ['/images/virtual-mouse (1).webp', '/images/virtual-mouse (2).webp', '/images/virtual-mouse (3).webp', '/images/virtual-mouse (4).webp'],
     Carmel_California: '/images/carmel-california.webp',

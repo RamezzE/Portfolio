@@ -1,4 +1,7 @@
 const images = {
+    // Project images
+    AMBIDOC: '/images/ambidoc.webp',
+    AMBIDOC_Slideshow: ['/images/ambidoc (1).webp', '/images/ambidoc (2).webp', '/images/ambidoc (3).webp', '/images/ambidoc (4).webp', '/images/ambidoc (5).webp'],
     HST_RISK: '/images/HST-Risk.webp',
     HST_Risk_SlideShow: ['/images/HST-Risk (1).webp', '/images/HST-Risk (2).webp', '/images/HST-Risk (3).webp', '/images/HST-Risk (4).webp'],
     Task_Visualizer: '/images/task-visualizer (1).png',

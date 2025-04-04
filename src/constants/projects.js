@@ -3,6 +3,32 @@ import icons from "./icons";
 
 const projects = [
   {
+    preview: images.AMBIDOC,
+    slug: "bridge-app",
+    images: images.AMBIDOC_Slideshow,
+    icon: icons.AMBIDOC,
+    name: "Bridge App",
+    description: "Electron | React",
+    long_description:
+      "Developed for a German AI startup. It features a floating widget that's always on top, which processes a screenshot on hover as well as two way communication using web sockets. It's optimized for both macOS & Windows, contains smooth animations and transitions using Tailwind and is bundled with several C++ & Python executables for custom requirements.",
+    tech_stack: [
+      "Electron",
+      "React",
+      "Socket.io",
+      "Tailwind CSS",
+      "Node.js",
+      "Python",
+    ],
+    links: [
+      {
+        name: "Upwork",
+        img: icons.upwork,
+        url: "https://www.upwork.com/freelancers/~01f9a101dc510f1112?p=1906786017208721408",
+      },
+    ],
+    category: "Desktop",
+  },
+  {
     preview: images.HST_RISK,
     slug: "hst-risk",
     images: images.HST_Risk_SlideShow,
@@ -40,7 +66,7 @@ const projects = [
     images: images.Task_Visualizer_SlideShow,
     icon: icons.Task_Visualizer,
     name: "Task Visualizer",
-    description: "React | Electron",
+    description: "Electron | React",
     long_description:
       "A Task Visualizer desktop app for note-taking and task management, supporting 'topics' that contain tasks or nested 'projects.' Tasks can be set for specific days or as daily recurring. Icons can be uploaded for customization, and the app features a clean, minimalistic design.",
     tech_stack: [
@@ -50,7 +76,7 @@ const projects = [
       "Node.js",
     ],
     links: [
-      
+
     ],
     category: "Desktop",
   },
@@ -97,34 +123,34 @@ const projects = [
         url: "https://github.com/RamezzE/VirtualMouse-HandTracking",
       },
     ],
-    category: "Computer Vision",
+    category: "Desktop",
   },
-  {
-    preview: images.Bitcoin_Prediction,
-    slug: "bitcoin-prediction",
-    images: [images.Bitcoin_Prediction],
-    icon: images.Bitcoin_Prediction,
-    name: "Bitcoin Price Prediction",
-    description: "",
-    long_description:
-      "A machine learning regression project aimed at predicting Bitcoin prices using models such as Random Forest, SVR, XGBoost, ARIMA, and Prophet. Evaluated model performance with metrics like R² and MAPE. A research paper was also conducted, which is available on the GitHub repository.",
-    tech_stack: [
-      "Python",
-      "Random Forest",
-      "SVR",
-      "XGBoost",
-      "ARIMA",
-      "Prophet",
-    ],
-    links: [
-      {
-        name: "GitHub",
-        img: icons.github,
-        url: "https://github.com/RamezzE/Bitcoin-Price-Prediction",
-      },
-    ],
-    category: "Machine Learning",
-  },
+  // {
+  //   preview: images.Bitcoin_Prediction,
+  //   slug: "bitcoin-prediction",
+  //   images: [images.Bitcoin_Prediction],
+  //   icon: images.Bitcoin_Prediction,
+  //   name: "Bitcoin Price Prediction",
+  //   description: "",
+  //   long_description:
+  //     "A machine learning regression project aimed at predicting Bitcoin prices using models such as Random Forest, SVR, XGBoost, ARIMA, and Prophet. Evaluated model performance with metrics like R² and MAPE. A research paper was also conducted, which is available on the GitHub repository.",
+  //   tech_stack: [
+  //     "Python",
+  //     "Random Forest",
+  //     "SVR",
+  //     "XGBoost",
+  //     "ARIMA",
+  //     "Prophet",
+  //   ],
+  //   links: [
+  //     {
+  //       name: "GitHub",
+  //       img: icons.github,
+  //       url: "https://github.com/RamezzE/Bitcoin-Price-Prediction",
+  //     },
+  //   ],
+  //   category: "Machine Learning",
+  // },
   {
     preview: images.Flarky,
     slug: "flarky-bird",
@@ -176,7 +202,7 @@ const projects = [
     icon: images.Quadtree,
     name: "Quadtree Playground",
     description: "",
-    long_description: "A C++ project utilizing the SFML graphics library to implement collision detection through space partitioning using a QuadTree data structure. The project efficiently handles object collisions by subdividing space and optimizing detection.",    
+    long_description: "A C++ project utilizing the SFML graphics library to implement collision detection through space partitioning using a QuadTree data structure. The project efficiently handles object collisions by subdividing space and optimizing detection.",
     tech_stack: [
       "C++",
       "SFML",

@@ -74,16 +74,16 @@ const Hero = () => {
         <motion.section
             ref={ref}
             id="hero"
-            className="w-full h-[85vh] sm:h-[90vh] flex flex-col-reverse sm:flex-row justify-end xs:justify-evenly gap-y-8 sm:gap-30 items-center sm:px-10 md:px-10 "
+            className="flex sm:flex-row flex-col-reverse justify-end xs:justify-evenly items-center gap-y-8 sm:gap-30 sm:px-10 md:px-10 w-full h-[85vh] sm:h-[90vh]"
             initial="hidden"
             animate={animationControls}
         >
             <motion.div
-                className="h-[40%] sm:h-[50%] md:w-1/2 md:h-screen/2 flex flex-col justify-center items-start gap-y-5 pt-4 sm:pt-0"
+                className="flex flex-col justify-center items-start gap-y-5 pt-4 sm:pt-0 md:w-1/2 h-[40%] sm:h-[50%] md:h-screen/2"
                 variants={variants.container}
             >
                 <div
-                    className="flex flex-col justify-center gap-5 w-[270px] md:w-[325px] lg:w-[431px] "
+                    className="flex flex-col justify-center gap-5 w-[270px] md:w-[325px] lg:w-[431px]"
 
                 >
                     <div>
@@ -91,7 +91,7 @@ const Hero = () => {
                             variants={variants.item}
                         >
                             <motion.h1
-                                className="font-rubik uppercase font-medium text-primary text-3xl md:text-4xl lg:text-5xl"
+                                className="font-rubik font-medium text-primary text-3xl md:text-4xl lg:text-5xl uppercase"
                                 whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
                             >
                                 Hey, I{"'"}m
@@ -102,7 +102,7 @@ const Hero = () => {
                             variants={variants.sideSlide}
                         >
                             <motion.h1
-                                className="font-rubik uppercase font-medium text-secondary text-3xl md:text-4xl lg:text-5xl"
+                                className="font-rubik font-medium text-secondary text-3xl md:text-4xl lg:text-5xl uppercase"
                                 whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
                             >
                                 Ramez Ehab
@@ -119,7 +119,7 @@ const Hero = () => {
                                 className="font-robotoMono font-medium text-primary text-lg md:text-xl lg:text-2xl"
                                 whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
                             >
-                                I{"'"}m a
+                                I{"'"}m
                             </motion.h1>
                         </motion.div>
                         <motion.div
@@ -132,11 +132,12 @@ const Hero = () => {
                             >
                                 <ReactTyped
                                     strings={[
-                                        'Mobile | Web Developer',
-                                        'Aspiring AI Enthusiast',
+                                        'a React Developer',
                                         'Living in debug mode',
-                                        'Guitarist',
-                                        'Ultimate Frisbee Player',
+                                        'Your next best hire',
+                                        'a Guitarist',
+                                        'an Ultimate Frisbee Player',
+                                        
                                     ]}
                                     typeSpeed={75}
                                     backSpeed={50}
@@ -157,7 +158,7 @@ const Hero = () => {
                                 className="font-robotoMono font-medium text-primary text-lg"
                                 whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
                             >
-                                Hope to bring
+                                Hope to have
                             </motion.h1>
                         </motion.div>
                         <motion.div
@@ -168,7 +169,7 @@ const Hero = () => {
                                 className="font-robotoMono font-medium text-secondary text-lg"
                                 whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
                             >
-                                Real Change
+                                A Real Impact
                             </motion.h1>
                         </motion.div>
                     </div>
@@ -176,7 +177,7 @@ const Hero = () => {
 
                 </div>
                 <motion.button
-                    className="bg-primary text-bgColor font-robotoMono font-medium text-base md:text-lg py-2 px-4 rounded-md w-fit sm:mt-auto mx-auto sm:mx-0 active:bg-secondary active:scale-110 "
+                    className="bg-primary active:bg-secondary mx-auto sm:mx-0 sm:mt-auto px-4 py-2 rounded-md w-fit font-robotoMono font-medium text-bgColor text-base md:text-lg active:scale-110"
                     variants={variants.sideSlide}
                     whileHover={{ scale: 1.1, backgroundColor: '#51bfff' }}
                     transition={{ duration: 0.3 }}
@@ -187,7 +188,7 @@ const Hero = () => {
             </motion.div>
 
             <motion.div
-                className="h-[40%] sm:h-[50%] flex flex-col justify-evenly sm:justify-between"
+                className="flex flex-col justify-evenly sm:justify-between h-[40%] sm:h-[50%]"
                 initial="hidden"
                 animate={animationControls}
                 // animate="visible"
@@ -196,7 +197,7 @@ const Hero = () => {
                 <motion.img
                     src={images.character}
                     alt="Ramez Ehab"
-                    className="rounded-full w-[30vw] min-w-40 xs:w-[30vw] xs:h-[30vw] sm:w-auto sm:h-[75%] md:max-h-[45vw] md:h-[80%] lg:h-[83%]  object-contain"
+                    className="rounded-full w-[30vw] xs:w-[30vw] sm:w-auto min-w-40 xs:h-[30vw] sm:h-[75%] md:h-[80%] lg:h-[83%] md:max-h-[45vw] object-contain"
                     whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
                 />
                 <motion.div

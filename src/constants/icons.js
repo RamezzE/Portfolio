@@ -11,6 +11,7 @@ const icons = {
     Carmel_California: '/icons/carmel-california.webp',
     Flarky: '/icons/flarky.webp',
     Maze: '/icons/maze.webp',
+    AMBIDOC: '/icons/ambidoc.svg',
 };
 
 export default icons;

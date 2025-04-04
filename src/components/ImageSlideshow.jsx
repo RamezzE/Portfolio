@@ -24,7 +24,7 @@ const ImageSlideshow = ({ data = null, containerStyles = ""}) => {
     <div className={`relative flex items-center justify-center overflow-hidden ${containerStyles}`}>      <img
         src={images[currentIndex]}
         alt={data.name}
-        className="w-full h-full object-contain rounded-md"
+        className="rounded-md w-full h-full object-contain"
       />
     </div>
   );

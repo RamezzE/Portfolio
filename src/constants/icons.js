@@ -2,6 +2,7 @@ const icons = {
     linkedin: '/icons/linkedin.webp',
     github: '/icons/github.webp',
     apple: '/icons/apple.webp',
+    android: '/icons/android.svg',
     upwork: '/icons/upwork.svg',
     website: '/icons/website.webp',
     email: '/icons/email.webp',
@@ -12,6 +13,7 @@ const icons = {
     Flarky: '/icons/flarky.webp',
     Maze: '/icons/maze.webp',
     AMBIDOC: '/icons/ambidoc.svg',
+    HST_Jumanji: '/icons/HST-Jumanji.webp',
 };
 
 export default icons;

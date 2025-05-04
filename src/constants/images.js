@@ -1,5 +1,7 @@
 const images = {
     // Project images
+    HST_Jumanji: '/images/HST-Jumanji.webp',
+    HST_Jumanji_Slideshow: ['/images/HST-Jumanji (1).webp', '/images/HST-Jumanji (2).webp'],
     AMBIDOC: '/images/ambidoc.webp',
     AMBIDOC_Slideshow: ['/images/ambidoc (1).webp', '/images/ambidoc (2).webp', '/images/ambidoc (3).webp', '/images/ambidoc (4).webp', '/images/ambidoc (5).webp'],
     HST_RISK: '/images/HST-Risk.webp',

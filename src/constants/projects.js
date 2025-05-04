@@ -3,6 +3,33 @@ import icons from "./icons";
 
 const projects = [
   {
+    preview: images.HST_Jumanji,
+    slug: "hst-jumanji",
+    images: images.HST_Jumanji_Slideshow,
+    icon: icons.HST_Jumanji,
+    name: "HST Jumanji",
+    description: "React Native Expo",
+    long_description:
+      "An immersive Jumanji-themed mobile and desktop application for Focus Sports Camp. Teams scan QR codes to unlock quests and navigate to real-world locations using a custom Jumanji map overlay. Real-time progress updates are managed via Socket.io, and augmented reality clues are rendered using React Viro. Includes an admin dashboard to configure teams, quests, AR elements, and map overlays.",
+    tech_stack: [
+      "React Native",
+      "TypeScript",
+      "Electron",
+      "Socket.io",
+      "Mapbox",
+      "React Viro",
+      "Node.js"
+    ],
+    links: [
+      {
+        name: "Apple Store",
+        img: icons.apple,
+        url: "https://apps.apple.com/us/app/hst-jumanji/id6744375538",
+      },
+    ],
+    category: "Mobile",
+  },
+  {
     preview: images.AMBIDOC,
     slug: "bridge-app",
     images: images.AMBIDOC_Slideshow,
@@ -35,8 +62,7 @@ const projects = [
     icon: icons.HST_Risk,
     name: "HST Risk",
     description: "React Native Expo",
-    long_description:
-      "A mobile app mimicking 'RISK' where teams battle for virtual countries using virtual money. Real-life challenges decide outcomes, and winners gain control of both their country and the opponent's.",
+    long_description: "A mobile app mimicking 'RISK', where teams use virtual money to conquer color-coded regions on real-world maps. Game state and team control dynamically update based on real-life sports match outcomes, with instant feedback via Socket.io and notifications powered by Expo.",
     tech_stack: [
       "React Native",
       "Expo",
@@ -56,6 +82,11 @@ const projects = [
         name: "Apple Store",
         img: icons.apple,
         url: "https://apps.apple.com/us/app/hst-risk/id6636564359",
+      },
+      {
+        name: "Google Play",
+        img: icons.android,
+        url: "https://play.google.com/store/apps/details?id=com.ramezze.hstrisk",
       },
     ],
     category: "Mobile",

@@ -196,6 +196,7 @@ const Hero = () => {
             >
                 <motion.img
                     src={images.character}
+                    loading="lazy"
                     alt="Ramez Ehab"
                     className="rounded-full w-[30vw] xs:w-[30vw] sm:w-auto min-w-40 xs:h-[30vw] sm:h-[75%] md:h-[80%] lg:h-[83%] md:max-h-[45vw] object-contain"
                     whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}

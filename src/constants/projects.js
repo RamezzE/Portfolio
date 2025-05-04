@@ -10,13 +10,13 @@ const projects = [
     name: "HST Jumanji",
     description: "React Native Expo",
     long_description:
-      "Built an immersive Jumanji-themed mobile and desktop application for Focus Sports Camp using React Native, Electron, and MapBox. Teams scan QR codes to unlock quests and navigate to real-world locations using a custom Jumanji map overlay. Real-time progress updates are managed via Socket.io, and augmented reality clues are rendered using React Viro. Includes an admin dashboard to configure teams, quests, AR elements, and map overlays.",
+      "An immersive Jumanji-themed mobile and desktop application for Focus Sports Camp. Teams scan QR codes to unlock quests and navigate to real-world locations using a custom Jumanji map overlay. Real-time progress updates are managed via Socket.io, and augmented reality clues are rendered using React Viro. Includes an admin dashboard to configure teams, quests, AR elements, and map overlays.",
     tech_stack: [
       "React Native",
       "TypeScript",
       "Electron",
       "Socket.io",
-      "MapBox",
+      "Mapbox",
       "React Viro",
       "Node.js"
     ],
@@ -62,8 +62,7 @@ const projects = [
     icon: icons.HST_Risk,
     name: "HST Risk",
     description: "React Native Expo",
-    long_description:
-      "A mobile app mimicking 'RISK' where teams battle for virtual countries using virtual money. Real-life challenges decide outcomes, and winners gain control of both their country and the opponent's.",
+    long_description: "A mobile app mimicking 'RISK', where teams use virtual money to conquer color-coded regions on real-world maps. Game state and team control dynamically update based on real-life sports match outcomes, with instant feedback via Socket.io and notifications powered by Expo.",
     tech_stack: [
       "React Native",
       "Expo",

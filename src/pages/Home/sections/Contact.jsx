@@ -67,27 +67,27 @@ const ContactForm = () => {
     emailjs.sendForm(import.meta.env.VITE_EMAILJS_SERVICE_ID, import.meta.env.VITE_EMAILJS_TEMPLATE_ID, formRef.current, {
       publicKey: import.meta.env.VITE_EMAILJS_USER_ID,
     })
-    .then((response) => {
-      dispatch({ type: "SUBMIT" });
-      console.log('Email sent successfully!', response.status, response.text);
-    })
-    .catch((error) => {
-      console.error('Failed to send email.', error);
-    });
+      .then((response) => {
+        dispatch({ type: "SUBMIT" });
+        console.log('Email sent successfully!', response.status, response.text);
+      })
+      .catch((error) => {
+        console.error('Failed to send email.', error);
+      });
 
   }, [dispatch, state.form]);
 
   return (
     <motion.section
       id="contact"
-      className="flex flex-col justify-center items-center p-5 md:p-10 gap-10 my-16"
+      className="flex flex-col justify-center items-center gap-10 my-16 p-5 md:p-10"
       initial="hidden"
       animate={animateControls}
       variants={state.containerVariants}
     >
       <motion.h1
         ref={titleRef}
-        className="text-primary font-rubik font-medium text-4xl sm:text-5xl mb-6"
+        className="mb-6 font-rubik font-medium text-primary text-4xl sm:text-5xl"
         variants={state.itemVariants}
       >
         Reach Out
@@ -96,14 +96,14 @@ const ContactForm = () => {
       {!state.submitted ? (
         <motion.form
           onSubmit={handleSubmit}
-          className="w-full max-w-80 md:max-w-lg py-8 px-6 md:px-8 rounded-lg shadow-md flex flex-col gap-4 border-2 border-secondary"
+          className="flex flex-col gap-4 shadow-md px-6 md:px-8 py-8 border-2 border-secondary rounded-lg w-full max-w-80 md:max-w-lg"
           variants={state.itemVariants}
           ref={formRef}
         >
           <div className="flex flex-col gap-2">
             <label
               htmlFor="name"
-              className=" text-primary font-rubik mb-2"
+              className="mb-2 font-rubik text-primary"
             >
               Name
             </label>
@@ -114,7 +114,7 @@ const ContactForm = () => {
               placeholder="Your Name"
               value={state.form.name}
               onChange={handleChange}
-              className="w-full px-4 py-2 text-primary text-sm md:text-base font-robotoMono bg-bgColor/50 outline-none rounded-lg border-[1px] border-primary/50 hover:border-secondary hover:border-2"
+              className="bg-bgColor/50 px-4 py-2 border-[1px] border-primary/50 hover:border-2 hover:border-secondary rounded-lg outline-none w-full font-robotoMono text-primary text-sm md:text-base"
               required
             />
           </div>
@@ -122,7 +122,7 @@ const ContactForm = () => {
           <div className="flex flex-col gap-2">
             <label
               htmlFor="email"
-              className=" text-primary font-rubik mb-2"
+              className="mb-2 font-rubik text-primary"
             >
               Email
             </label>
@@ -133,14 +133,14 @@ const ContactForm = () => {
               placeholder="Optionally, leave your email"
               value={state.form.email}
               onChange={handleChange}
-              className="w-full px-4 py-2 text-primary text-sm md:text-base font-robotoMono bg-bgColor/50 outline-none rounded-lg border-[1px] border-primary/50 hover:border-secondary hover:border-2"
+              className="bg-bgColor/50 px-4 py-2 border-[1px] border-primary/50 hover:border-2 hover:border-secondary rounded-lg outline-none w-full font-robotoMono text-primary text-sm md:text-base"
             />
           </div>
 
           <div className="flex flex-col gap-2 mb-4">
             <label
               htmlFor="message"
-              className=" text-primary font-rubik mb-2"
+              className="mb-2 font-rubik text-primary"
             >
               Message
             </label>
@@ -151,14 +151,14 @@ const ContactForm = () => {
               rows="5"
               value={state.form.message}
               onChange={handleChange}
-              className="w-full px-4 py-2 text-primary text-sm md:text-base font-robotoMono bg-bgColor/50 outline-none rounded-lg border-[1px] border-primary/50 hover:border-secondary hover:border-2"
+              className="bg-bgColor/50 px-4 py-2 border-[1px] border-primary/50 hover:border-2 hover:border-secondary rounded-lg outline-none w-full font-robotoMono text-primary text-sm md:text-base"
               required
             />
           </div>
 
           <motion.button
             type="submit"
-            className="bg-primary text-bgColor font-robotoMono font-medium py-2 px-4 rounded-lg mx-auto"
+            className="bg-primary mx-auto px-4 py-2 rounded-lg font-robotoMono font-medium text-bgColor"
             whileHover={{ scale: 1.05, backgroundColor: "#51bfff" }}
             transition={{ duration: 0.3 }}
           >
@@ -167,12 +167,20 @@ const ContactForm = () => {
         </motion.form>
       ) : (
         <motion.div
-          className="w-full max-w-lg p-8 rounded-lg shadow-md text-center border-secondary border-2"
-          variants={state.itemVariants}
+          key="thankyou"
+          className="shadow-md p-8 border-2 border-secondary rounded-lg w-full max-w-lg text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
         >
-          <h2 className="text-2xl text-secondary font-medium font-rubik mb-4">Thank you!</h2>
-          <p className="text-primary font-robotoMono">Your message has been successfully sent. I{"'"}ll get back to you as soon as possible.</p>
+          <h2 className="mb-4 font-rubik font-medium text-secondary text-2xl">
+            Thank you!
+          </h2>
+          <p className="font-robotoMono text-primary">
+            Your message has been successfully sent. I{"'"}ll get back to you as soon as possible.
+          </p>
         </motion.div>
+
       )}
     </motion.section>
   );

@@ -14,6 +14,7 @@ const icons = {
     Maze: '/icons/maze.webp',
     AMBIDOC: '/icons/ambidoc.svg',
     HST_Jumanji: '/icons/HST-Jumanji.webp',
+    Cubie: '/images/cubie/cubie-icon.png',
 };
 
 export default icons;

@@ -15,13 +15,16 @@ export default {
     extend: {
       fontFamily: {
         robotoMono: ['"Roboto Mono"', 'monospace'],
-        rubik: ['"Rubik"', 'sans-serif'],
+        rubik: ['"Rajdhani"', 'sans-serif'],
+        display: ['"Orbitron"', 'sans-serif'],
       },
       colors: {
-        primary: '#FFF',
-        secondary: '#51bfff',
-        // secondary: '#d1d5d5',
-        bgColor: '#222222'
+        primary: '#EAF4FF',
+        secondary: '#4dd8ff',
+        bgColor: '#05070d',
+        tertiary: '#1e88e5',
+        accent: '#ffb020',
+        panel: '#0a0e18',
       },
       keyframes: {
         'fade-in': {
@@ -36,11 +39,22 @@ export default {
           '0%': { transform: 'translateX(-50px)', opacity: '0' },
           '100%': { transform: 'translateX(0)', opacity: '1' },
         },
+        'pulse-glow': {
+          '0%, 100%': { opacity: '0.6' },
+          '50%': { opacity: '1' },
+        },
+        'drift': {
+          '0%': { transform: 'translate(0, 0)' },
+          '50%': { transform: 'translate(-2%, 2%)' },
+          '100%': { transform: 'translate(0, 0)' },
+        },
       },
       animation: {
         'fade-in': 'fade-in 1s ease-in-out',
         'slide-up': 'slide-up 1s ease-out',
         'slide-in': 'slide-in 1s ease-out',
+        'pulse-glow': 'pulse-glow 3s ease-in-out infinite',
+        'drift': 'drift 40s ease-in-out infinite',
       },
     },
   },

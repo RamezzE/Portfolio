@@ -1,17 +1,15 @@
 import Hero from './sections/Hero';
 import Projects from './sections/Projects';
+import Testimonials from './sections/Testimonials';
 import Contact from './sections/Contact'
-import ProjectPopUp from '../../components/ProjectPopUp';
-
-
 
 const Home = () => {
 
   return (
     <div className="w-full">
-      <ProjectPopUp />
       <Hero />
       <Projects />
+      <Testimonials />
       <Contact />
     </div>
   );

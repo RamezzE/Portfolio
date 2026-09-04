@@ -1,38 +1,60 @@
 import images from "./images";
 import icons from "./icons";
 
-const projects = [
+export interface ProjectLink {
+  name: string;
+  img: string;
+  url: string;
+}
+
+export interface Project {
+  preview: string;
+  slug: string;
+  images: string[];
+  icon: string;
+  name: string;
+  description: string;
+  long_description: string;
+  tech_stack: string[];
+  links: ProjectLink[];
+  category: string;
+  featured?: boolean;
+  hobby?: boolean;
+}
+
+const projects: Project[] = [
   {
-    preview: images.HST_Jumanji,
-    slug: "hst-jumanji",
-    images: images.HST_Jumanji_Slideshow,
-    icon: icons.HST_Jumanji,
-    name: "HST Jumanji",
-    description: "React Native Expo",
+    preview: images.HST_Website_Home,
+    slug: "hst-website",
+    images: images.HST_Website_Screenshots,
+    icon: images.HST_Website_Icon,
+    name: "HST Website",
+    description: "React | TypeScript | Supabase",
     long_description:
-      "An immersive Jumanji-themed mobile and desktop application for Focus Sports Camp. Teams scan QR codes to unlock quests and navigate to real-world locations using a custom Jumanji map overlay. Real-time progress updates are managed via Socket.io, and augmented reality clues are rendered using React Viro. Includes an admin dashboard to configure teams, quests, AR elements, and map overlays.",
+      "A camp registration and management platform built for Helio Sports Team, white-labeled across two camp brands (Focus and Sketch) from a single codebase via environment configuration. Built with React 19, TypeScript, and Vite, with Supabase handling auth, database, and edge functions. Includes a custom drag-and-drop form builder for registration forms, a full admin dashboard for managing camps, forms, payments, and staff applications, bulk email tooling with CSV/Excel export, and payment gateway integration with callback handling.",
     tech_stack: [
-      "React Native",
+      "React",
       "TypeScript",
-      "Electron",
-      "Socket.io",
-      "Mapbox",
-      "React Viro",
-      "Node.js"
+      "Vite",
+      "Tailwind CSS",
+      "Supabase",
+      "Zustand",
+      "React Router",
     ],
     links: [
       {
-        name: "Apple Store",
-        img: icons.apple,
-        url: "https://apps.apple.com/us/app/hst-jumanji/id6744375538",
+        name: "Live Website",
+        img: icons.website,
+        url: "https://sketchcamps.heliosportsteam.org",
       },
     ],
-    category: "Mobile",
+    category: "Web",
+    featured: true,
   },
   {
     preview: images.AMBIDOC,
     slug: "bridge-app",
-    images: images.AMBIDOC_Slideshow,
+    images: [images.AMBIDOC],
     icon: icons.AMBIDOC,
     name: "Bridge App",
     description: "Electron | React",
@@ -54,23 +76,27 @@ const projects = [
       },
     ],
     category: "Desktop",
+    featured: true,
   },
   {
     preview: images.HST_RISK,
     slug: "hst-risk",
-    images: images.HST_Risk_SlideShow,
+    images: images.HST_Risk_Feature,
     icon: icons.HST_Risk,
     name: "HST Risk",
     description: "React Native Expo",
-    long_description: "A mobile app mimicking 'RISK', where teams use virtual money to conquer color-coded regions on real-world maps. Game state and team control dynamically update based on real-life sports match outcomes, with instant feedback via Socket.io and notifications powered by Expo.",
+    long_description: "A live-event mobile game mimicking 'RISK', where teams use virtual money to conquer color-coded regions on real-world maps. Built with Expo Router and NativeWind, with Zustand managing client state. Game state and team control dynamically update based on real-life sports match outcomes, with instant feedback via Socket.io and notifications powered by Expo.",
     tech_stack: [
       "React Native",
       "Expo",
-      "Tailwind CSS",
+      "Expo Router",
+      "NativeWind",
+      "Zustand",
+      "Socket.io",
+      "Mapbox",
       "Node.js",
       "Express",
       "MongoDB",
-      "Socket.io",
     ],
     links: [
       {
@@ -90,6 +116,59 @@ const projects = [
       },
     ],
     category: "Mobile",
+    featured: true,
+  },
+  {
+    preview: images.HST_Jumanji,
+    slug: "hst-jumanji",
+    images: images.HST_Jumanji_Feature,
+    icon: icons.HST_Jumanji,
+    name: "HST Jumanji",
+    description: "React Native Expo",
+    long_description:
+      "An immersive Jumanji-themed live scavenger-hunt mobile app for Focus Sports Camp, built with Expo Router and NativeWind. Teams scan QR codes to sign in and unlock quests, navigating to real-world locations via a custom map overlay. Real-time progress updates flow through Socket.io, and the final quest is revealed through an augmented-reality scene rendered with React Viro. Includes an admin dashboard to configure teams, quests, AR elements, and map overlays.",
+    tech_stack: [
+      "React Native",
+      "Expo",
+      "Expo Router",
+      "NativeWind",
+      "React Viro (AR)",
+      "Mapbox",
+      "Socket.io",
+      "Zustand",
+      "Node.js"
+    ],
+    links: [
+      {
+        name: "Apple Store",
+        img: icons.apple,
+        url: "https://apps.apple.com/us/app/hst-jumanji/id6744375538",
+      },
+    ],
+    category: "Mobile",
+  },
+  {
+    preview: images.Cubie_Icon,
+    slug: "cubie-companion",
+    images: images.Cubie_Screenshots,
+    icon: icons.Cubie,
+    name: "Cubie Companion",
+    description: "Swift, SwiftUI",
+    long_description:
+      "A small blocky character who lives on your desktop. Cubie walks along the tops of your windows, sits on an edge and dangles his feet, stretches, dances, and falls asleep when he runs out of energy — all on his own. Eight mood axes drive dozens of hand-authored animations, with custom character skins importable as PNGs. Runs entirely locally with no tracking or network connection.",
+    tech_stack: [
+      "Swift",
+      "SwiftUI",
+      "macOS",
+    ],
+    links: [
+      {
+        name: "Apple Store",
+        img: icons.apple,
+        url: "https://apps.apple.com/us/app/cubie-companion/id6800108603?mt=12",
+      },
+    ],
+    category: "Desktop",
   },
   {
     preview: images.Task_Visualizer,
@@ -155,33 +234,8 @@ const projects = [
       },
     ],
     category: "Desktop",
+    hobby: true,
   },
-  // {
-  //   preview: images.Bitcoin_Prediction,
-  //   slug: "bitcoin-prediction",
-  //   images: [images.Bitcoin_Prediction],
-  //   icon: images.Bitcoin_Prediction,
-  //   name: "Bitcoin Price Prediction",
-  //   description: "",
-  //   long_description:
-  //     "A machine learning regression project aimed at predicting Bitcoin prices using models such as Random Forest, SVR, XGBoost, ARIMA, and Prophet. Evaluated model performance with metrics like R² and MAPE. A research paper was also conducted, which is available on the GitHub repository.",
-  //   tech_stack: [
-  //     "Python",
-  //     "Random Forest",
-  //     "SVR",
-  //     "XGBoost",
-  //     "ARIMA",
-  //     "Prophet",
-  //   ],
-  //   links: [
-  //     {
-  //       name: "GitHub",
-  //       img: icons.github,
-  //       url: "https://github.com/RamezzE/Bitcoin-Price-Prediction",
-  //     },
-  //   ],
-  //   category: "Machine Learning",
-  // },
   {
     preview: images.Flarky,
     slug: "flarky-bird",
@@ -203,6 +257,7 @@ const projects = [
       },
     ],
     category: "DS & Algo",
+    hobby: true,
   },
   {
     preview: images.Maze,
@@ -225,6 +280,7 @@ const projects = [
       },
     ],
     category: "DS & Algo",
+    hobby: true,
   },
   {
     preview: images.Quadtree,
@@ -247,6 +303,7 @@ const projects = [
       },
     ],
     category: "DS & Algo",
+    hobby: true,
   },
 ];
 

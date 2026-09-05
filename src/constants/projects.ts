@@ -167,6 +167,11 @@ const projects: Project[] = [
         img: icons.apple,
         url: "https://apps.apple.com/us/app/cubie-companion/id6800108603?mt=12",
       },
+      {
+        name: "Website",
+        img: icons.website,
+        url: "https://cubie.ramezze.org",
+      },
     ],
     category: "Desktop",
   },
